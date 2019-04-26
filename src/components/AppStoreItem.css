@@ -1,0 +1,53 @@
+.appstore-item {
+	color: #fff;
+	overflow: hidden;
+	margin: 0 0 15px 0;
+	border-radius: 4px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.appstore-item:hover {
+	background: rgba(255, 255, 255, 0.1);
+	transition-property: background;
+	transition-duration: 0.15s;
+}
+
+.appstore-item .icon {
+	width: 75px;
+	height: 75px;
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.1);
+	margin-right: 15px;
+	float: left;
+	overflow: hidden;
+}
+
+.appstore-item .icon img {
+	width: 100%;
+	height: 100%;
+	border-radius: 16px;
+	opacity: 0;
+}
+.appstore-item .icon img.loaded {
+	opacity: 1;
+	transition-property: opacity;
+	transition-duration: 0.3s;
+}
+
+.appstore-item h2, .appstore-item p {
+	margin: 0;
+}
+
+.appstore-item p {
+	margin-top: 3px;
+	color: rgba(255, 255, 255, 0.7);
+	font-weight: 200;
+}
+
+.appstore-item h2 {
+	margin-top: 12px;
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
