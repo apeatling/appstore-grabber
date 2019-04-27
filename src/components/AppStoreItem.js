@@ -6,12 +6,11 @@ class AppStoreItem extends React.Component {
 		iconIsLoaded: false
 	}
 
-	onSelect = e => {
+	onAppClick = e => {
 		e.preventDefault();
-
-		console.log(this.props.app)
+		this.props.onAppClick(this.props.app);
 	}
-
+	
 	onIconLoad = e => {
 		this.setState({ iconIsLoaded: true });
 	}
@@ -28,7 +27,7 @@ class AppStoreItem extends React.Component {
 		const { iconURL, name, creator } = this.props.app;
 
 		return (
-			<li className="appstore-item" onClick={this.onSelect}>
+			<li className="appstore-item" onClick={this.onAppClick}>
 				<span className="icon">
 					<img src={iconURL} alt={name} width="50" height="50" onLoad={this.onIconLoad} className={this.getIconClassName()} /> 
 				</span>

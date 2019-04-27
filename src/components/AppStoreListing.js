@@ -4,7 +4,7 @@ import ('./AppStoreListing.css');
 
 const AppStoreListing = (props) => {
 	const apps = props.apps.map((app) => {
-		return <AppStoreItem app={app} key={app.key} />
+		return <AppStoreItem app={app} key={app.key} onAppClick={props.onAppClick} />
 	});
 
 	return (

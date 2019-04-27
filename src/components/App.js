@@ -33,11 +33,15 @@ class App extends React.Component {
 		}, ( term.length === 0 ? 0 : 1000 ) );
 	}
 
+	onAppClick = (app) => {
+		console.log( app );
+	}
+
 	render() {
 		return (
 			<div className="app">
 				<SearchBar onSubmit={this.onSearchSubmit} isLoading={this.state.isLoading} />
-				<AppStoreListing apps={this.state.apps} />
+				<AppStoreListing apps={this.state.apps} onAppClick={this.onAppClick} />
 			</div>
 		);
 	}
