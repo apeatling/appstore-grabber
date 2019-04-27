@@ -1,5 +1,6 @@
 import React from 'react';
 import Spinner from './Spinner';
+import CancelButton from './CancelButton';
 import AppIconHolder from './AppIconHolder';
 
 import ('./SearchBar.css');
@@ -14,25 +15,27 @@ class SearchBar extends React.Component {
 	}
 
 	componentDidUpdate() {
-		this.searchInput.focus();		
+		this.searchInput.focus();
+
+		if ( this.props.selectedApp && this.state.term !== this.props.selectedApp.name ) {
+			this.setState({ term: this.props.selectedApp.name });
+		}
 	}
 
-	onFormSubmit = e => {
+	onSearchSubmit = e => {
 		e.preventDefault();
 
 		this.submitForm();
 	}
 
-	onInputChange = e => {
+	onInputChange = e => {		
 		this.setState({ term: e.target.value });
 		clearTimeout( window.timeout );
 
 		if ( e.target.value.length < 1 ) {
-			document.body.classList.remove('searching');
-			document.body.classList.add('waiting');
-			
-			this.props.onSubmit('');
-			
+			this.clearForm();
+			this.props.onSearchSubmit('');
+
 			return;
 		}
 
@@ -47,23 +50,45 @@ class SearchBar extends React.Component {
 		}
 	}
 
+	renderCancelButton() {
+		if ( !this.props.selectedApp ) return;
+
+		return <CancelButton onCancelButtonClick={this.onCancelButtonClick} />
+	}
+
+	onCancelButtonClick = () => {
+		this.setState({ term: '' });
+		this.clearForm();
+
+		this.props.onCancelButtonClick()
+	}
+
 	renderAppIconHolder() {
-		return <AppIconHolder />
+		return <AppIconHolder selectedApp={this.props.selectedApp} />
 	}
 
 	submitForm = () => {
 		if ( this.state.term.length > 0 ) {
-			document.body.classList.add('searching');
-			document.body.classList.remove('waiting');
+			this.activateForm();
 		}
 
-		this.props.onSubmit(this.state.term);
+		this.props.onSearchSubmit(this.state.term);
+	}
+
+	activateForm() {
+		document.body.classList.add('searching');
+		document.body.classList.remove('waiting');
+	}
+
+	clearForm() {		
+		document.body.classList.remove('searching');
+		document.body.classList.add('waiting');
 	}
 
 	render() {
 		return (
 			<div className="search-bar">
-				<form onSubmit={this.onFormSubmit}>
+				<form onSubmit={this.onSearchSubmit}>
 					{this.renderAppIconHolder()}
 
 					<input 
@@ -75,9 +100,11 @@ class SearchBar extends React.Component {
 						spellCheck="false"
 						autoCorrect="off"
 						autoCapitalize="none"
+						disabled={this.props.selectedApp ? true : false}
 					/>
 
 					{this.renderSpinner()}
+					{this.renderCancelButton()}
 				</form>
 			</div>
 		);

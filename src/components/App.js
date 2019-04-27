@@ -6,11 +6,15 @@ import AppStoreListing from './AppStoreListing';
 class App extends React.Component {
 	state = {
 		apps: [],
+		selectedApp: null,
 		isLoading: false
 	}
 
 	onSearchSubmit = async (term) => {
-		this.setState({ isLoading: true });
+		this.setState( {
+			isLoading: true, 
+			selectedApp: null
+		});
 
 		const response = await AppStore.get( '/', {
 			params: {
@@ -34,14 +38,31 @@ class App extends React.Component {
 	}
 
 	onAppClick = (app) => {
-		console.log( app );
+		this.setState( { selectedApp: app });
+	}
+
+	onCancelButtonClick = () => {
+		this.setState( {
+			apps: [],
+			selectedApp: null,
+			isLoading: false
+		});
 	}
 
 	render() {
 		return (
 			<div className="app">
-				<SearchBar onSubmit={this.onSearchSubmit} isLoading={this.state.isLoading} />
-				<AppStoreListing apps={this.state.apps} onAppClick={this.onAppClick} />
+				<SearchBar 
+					onSearchSubmit={this.onSearchSubmit}
+					onCancelButtonClick={this.onCancelButtonClick}
+					isLoading={this.state.isLoading} 
+					selectedApp={this.state.selectedApp}
+				/>
+				
+				<AppStoreListing 
+					onAppClick={this.onAppClick}
+					apps={this.state.apps}
+				/>
 			</div>
 		);
 	}
