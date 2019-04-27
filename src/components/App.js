@@ -22,7 +22,7 @@ class App extends React.Component {
 		const apps = response.data.results.map((app) => {
 			return {
 				key: app.trackId,
-				iconURL: app.artworkUrl100.replace('100x100', '250x250'),
+				iconURL: app.artworkUrl100.replace('100x100', '150x150'),
 				name: app.trackName,
 				creator: app.artistName
 			};

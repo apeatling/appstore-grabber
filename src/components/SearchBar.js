@@ -1,5 +1,6 @@
 import React from 'react';
 import Spinner from './Spinner';
+import AppIconHolder from './AppIconHolder';
 
 import ('./SearchBar.css');
 
@@ -46,6 +47,10 @@ class SearchBar extends React.Component {
 		}
 	}
 
+	renderAppIconHolder() {
+		return <AppIconHolder />
+	}
+
 	submitForm = () => {
 		if ( this.state.term.length > 0 ) {
 			document.body.classList.add('searching');
@@ -59,16 +64,19 @@ class SearchBar extends React.Component {
 		return (
 			<div className="search-bar">
 				<form onSubmit={this.onFormSubmit}>
+					{this.renderAppIconHolder()}
+
 					<input 
 						type="text"
 						value={this.state.term}
 						onChange={this.onInputChange}
 						ref={(input) => { this.searchInput = input; }}
 						placeholder="Search for an App..."
-						spellcheck="false"
-						autocorrect="off"
-						autocapitalize="none"
+						spellCheck="false"
+						autoCorrect="off"
+						autoCapitalize="none"
 					/>
+
 					{this.renderSpinner()}
 				</form>
 			</div>
