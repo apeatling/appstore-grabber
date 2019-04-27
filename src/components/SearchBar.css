@@ -1,16 +1,20 @@
 .search-bar {
-	margin-top: 300px;
+	padding: 300px 0 30px;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
 }
 
 .waiting .search-bar {
-	transition-property: margin;
+	transition-property: padding;
 	transition-duration: 0.3s;
 }
 
 .searching .search-bar {
-	margin-top: 15px;
-	transition-property: margin;
+	padding-top: 30px;
+	transition-property: padding;
 	transition-duration: 0.3s;
+	backdrop-filter: blur(100px);
 }
 
 .search-bar form {

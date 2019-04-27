@@ -1,5 +1,5 @@
 import React from 'react';
-import AppStore from '../api/appstore';
+import AppStore from '../api/AppStore';
 import SearchBar from './SearchBar';
 import AppStoreListing from './AppStoreListing';
 
@@ -28,7 +28,9 @@ class App extends React.Component {
 			};
 		});
 
-		this.setState({ apps, isLoading: false });
+		setTimeout( () => {
+			this.setState({ apps, isLoading: false });
+		}, ( term.length === 0 ? 0 : 1000 ) );
 	}
 
 	render() {

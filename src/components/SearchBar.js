@@ -65,6 +65,9 @@ class SearchBar extends React.Component {
 						onChange={this.onInputChange}
 						ref={(input) => { this.searchInput = input; }}
 						placeholder="Search for an App..."
+						spellcheck="false"
+						autocorrect="off"
+						autocapitalize="none"
 					/>
 					{this.renderSpinner()}
 				</form>

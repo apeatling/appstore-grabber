@@ -2,6 +2,8 @@
 	width: 75%;
 	max-width: 550px;
 	margin: 0 auto;
+	position: relative;
+	top: 150px;
 }
 
 .appstore-listing ul {
