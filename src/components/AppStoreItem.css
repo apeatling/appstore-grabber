@@ -1,4 +1,6 @@
 .appstore-item {
+	position: relative;
+	top: 0;
 	color: #fff;
 	overflow: hidden;
 	margin: 0 0 15px 0;
@@ -50,4 +52,16 @@
 	white-space: nowrap; 
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.appstore-item.hide {
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: 0.3s;
+}
+
+.appstore-item.selected {
+	transition-delay: 0.3s;
+	transition-property: top;
+	transition-duration: 1s;
 }

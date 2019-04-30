@@ -49,6 +49,17 @@ class App extends React.Component {
 		});
 	}
 
+	renderAppStoreListing() {
+		if ( this.state.apps.length > 0 ) {
+			return( 
+				<AppStoreListing 
+					onAppClick={this.onAppClick}
+					apps={this.state.apps}
+				/>
+			);
+		}
+	}
+
 	render() {
 		return (
 			<div className="app">
@@ -59,10 +70,7 @@ class App extends React.Component {
 					selectedApp={this.state.selectedApp}
 				/>
 				
-				<AppStoreListing 
-					onAppClick={this.onAppClick}
-					apps={this.state.apps}
-				/>
+				{this.renderAppStoreListing()}
 			</div>
 		);
 	}
