@@ -44,27 +44,11 @@ class SearchBar extends React.Component {
 		);
 	}
 
-	renderSpinner() {
-		if ( this.props.isLoading ) {
-			return <Spinner />
-		}
-	}
-
-	renderCancelButton() {
-		if ( !this.props.selectedApp ) return;
-
-		return <CancelButton onCancelButtonClick={this.onCancelButtonClick} />
-	}
-
 	onCancelButtonClick = () => {
 		this.setState({ term: '' });
 		this.clearForm();
 
 		this.props.onCancelButtonClick()
-	}
-
-	renderAppIconHolder() {
-		return <AppIconHolder selectedApp={this.props.selectedApp} />
 	}
 
 	submitForm = () => {
@@ -85,9 +69,25 @@ class SearchBar extends React.Component {
 		document.body.classList.add('waiting');
 	}
 
+	renderSpinner() {
+		if ( this.props.isLoading ) {
+			return <Spinner />
+		}
+	}
+
+	renderCancelButton() {
+		if ( !this.props.selectedApp ) return;
+
+		return <CancelButton onCancelButtonClick={this.onCancelButtonClick} />
+	}
+
+	renderAppIconHolder() {
+		return <AppIconHolder selectedApp={this.props.selectedApp} />
+	}
+
 	render() {
 		return (
-			<div className="search-bar">
+			<div className='search-bar'>
 				<form onSubmit={this.onSearchSubmit}>
 					{this.renderAppIconHolder()}
 
@@ -100,7 +100,7 @@ class SearchBar extends React.Component {
 						spellCheck="false"
 						autoCorrect="off"
 						autoCapitalize="none"
-						disabled={this.props.selectedApp ? true : false}
+						readOnly={this.props.selectedApp ? true : false}
 					/>
 
 					{this.renderSpinner()}

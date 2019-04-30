@@ -39,9 +39,14 @@
 	white-space: nowrap; 
 	overflow: hidden;
 	text-overflow: ellipsis;
+	color: #444;
 }
 
 .search-bar input[type="text"]:focus { /* You can also use .element.text:focus here */
 	outline: 0;
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.selected-app.has-apps-listed input {
+	color: #fff;
 }

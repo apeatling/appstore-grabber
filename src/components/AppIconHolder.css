@@ -17,4 +17,9 @@
 	width: 37px;
 	height: 37px;
 	border-radius: 9px;
+	opacity: 1;
+}
+
+.selected-app.has-apps-listed .app-icon-holder img {
+	opacity: 0;
 }

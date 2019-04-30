@@ -38,7 +38,11 @@ class App extends React.Component {
 	}
 
 	onAppClick = (app) => {
-		this.setState( { selectedApp: app });
+		this.setState({ selectedApp: app });
+
+		setTimeout( () => {
+			this.setState({ apps: [] });
+		}, 1000 );
 	}
 
 	onCancelButtonClick = () => {
@@ -47,6 +51,22 @@ class App extends React.Component {
 			selectedApp: null,
 			isLoading: false
 		});
+	}
+
+	getClassName() {
+		let className = 'app';
+
+		if ( this.state.apps.length ) {
+			className += ' has-apps-listed';
+		} else {
+			className += ' no-apps-listed';
+		}
+
+		if ( this.state.selectedApp ) {
+			className += ' selected-app';
+		}
+
+		return className;
 	}
 
 	renderAppStoreListing() {
@@ -62,7 +82,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="app">
+			<div className={this.getClassName()}>
 				<SearchBar 
 					onSearchSubmit={this.onSearchSubmit}
 					onCancelButtonClick={this.onCancelButtonClick}

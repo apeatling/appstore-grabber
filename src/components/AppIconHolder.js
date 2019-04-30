@@ -7,8 +7,8 @@ class AppIconHolder extends React.Component {
 			return;
 		}
 
+		// Wait so that css transitions work
 		const { iconURL, name } = this.props.selectedApp;
-
 		return (
 			<img src={iconURL} alt={name} width="32" height="32" />
 		);
