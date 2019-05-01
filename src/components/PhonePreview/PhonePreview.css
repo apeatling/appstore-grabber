@@ -1,0 +1,27 @@
+.phone-preview {
+	margin: 0 auto;
+	position: relative;
+	top: 150px;
+	color: #fff;
+	background: url(/images/phone.png) top left no-repeat;
+	background-size: 100%;
+	width: 318px;
+	height: 566px;
+	padding: 46px 50px 46px 51px;
+	box-sizing: border-box;
+}
+
+.phone-preview .iframe-holder {
+	border-radius: 22px;
+	overflow: hidden;
+	transform: translateY(0px);
+	background: #fff;
+	width: 217px;
+	height: 471px;
+}
+
+.phone-preview iframe {
+	border: none;
+	width: 217px;
+	height: 471px;
+}

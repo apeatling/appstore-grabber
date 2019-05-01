@@ -1,7 +1,8 @@
 import React from 'react';
 import AppStore from '../api/AppStore';
-import SearchBar from './SearchBar';
-import AppStoreListing from './AppStoreListing';
+import SearchBar from './SearchBar/SearchBar';
+import AppStoreListing from './AppStoreListing/AppStoreListing';
+import PhonePreview from './PhonePreview/PhonePreview';
 
 class App extends React.Component {
 	state = {
@@ -70,12 +71,22 @@ class App extends React.Component {
 	}
 
 	renderAppStoreListing() {
+		
+	}
+	
+	renderPage() {
 		if ( this.state.apps.length > 0 ) {
 			return( 
 				<AppStoreListing 
 					onAppClick={this.onAppClick}
 					apps={this.state.apps}
 				/>
+			);
+		}
+
+		if ( !this.state.apps.length && this.state.selectedApp ) {
+			return(
+				<PhonePreview frameURL="" />
 			);
 		}
 	}
@@ -89,6 +100,8 @@ class App extends React.Component {
 					isLoading={this.state.isLoading} 
 					selectedApp={this.state.selectedApp}
 				/>
+
+				{this.renderPage()}
 				
 				{this.renderAppStoreListing()}
 			</div>
