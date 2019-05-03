@@ -86,7 +86,7 @@ class App extends React.Component {
 
 		if ( !this.state.apps.length && this.state.selectedApp ) {
 			return(
-				<PhonePreview frameURL="" />
+				<PhonePreview frameURL={`http://appstore.local:8888/appstore.php?id=${this.state.selectedApp.key}`} />
 			);
 		}
 	}
@@ -102,7 +102,6 @@ class App extends React.Component {
 				/>
 
 				{this.renderPage()}
-				
 				{this.renderAppStoreListing()}
 			</div>
 		);
