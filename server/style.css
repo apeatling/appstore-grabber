@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+	background: #fff;
+	font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	padding: 15px 20px 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+a {
+	color: #007AFF;
+	text-decoration: none
+}
+
+ul {
+	list-style: none
+}
+
+/* Sections ------- */
+
+.section {
+	border-bottom: 1px solid #E5E5EA;
+	padding: 10px 0 20px;
+}
+
+.section ul {
+	display: flex;
+}
+
+/* Headings ------- */
+
+h1 {
+	font-size: 22px;
+	font-weight: 600;
+}
+
+h2 {
+	font-size: 21px;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+
+h3 {
+	font-size: 13px;
+}
+
+/* Header ------- */
+
+#header {
+	border: none;
+	padding-bottom: 15px;
+}
+
+#header .icon {
+	flex: 1;
+}
+
+#header .icon img {
+	border-radius: 30px;
+}
+
+#header .app-detail {
+	display: flex;
+	flex-direction: column;
+	flex: 2;
+	margin-left: 20px;
+}
+
+#header .promo-line {
+	margin-top: 4px;
+	color: #8E8E93;
+	font-size: 15px;
+}
+
+#header .share-button {
+	margin-left: auto;
+}
+
+#header .action-buttons {
+	margin-top: auto;
+}
+
+#header .action-buttons button {
+	background: #007AFF;
+	border-radius: 15px;
+	border: none;
+	height: 27px;
+	min-width: 72px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+#header .share-button button {
+	min-width: 27px;
+	font-size: 25px;
+	letter-spacing: -0.07em;
+	background: #007AFF url(images/share-dots@3x.png) center center no-repeat;
+	background-size: 16px 4px;
+}
+
+/* Ratings Overview ------- */
+
+#ratings-overview {
+	display: flex;
+	padding-bottom: 10px;
+}
+
+#ratings-overview ul:first-child {
+	flex: 2;
+}
+
+#ratings-overview ul:last-child {
+	flex: 1;
+}
+
+#ratings-overview .ratings {
+	display: flex;
+	flex-direction: column;
+}
+
+#ratings-overview h2 {
+	margin-bottom: 2px;
+}
+
+#ratings-overview li:first-child {
+	display: flex;
+	flex-direction: row;
+}
+
+#ratings-overview .ratings li:last-child,
+#ratings-overview .age li:last-child {
+	color: #D1D1D6;
+	font-size: 13px;
+}
+
+#ratings-overview h2 {
+	color: #8E8E93;
+	font-size: 22px;
+	font-weight: 500;
+}
+
+#ratings-overview .stars {
+	position: relative;
+	margin: 4px 0 0 8px;
+}
+
+#ratings-overview .stars img {
+	position: relative;
+	z-index: 10;
+}
+
+#ratings-overview .stars .rating {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: #8E8E93;
+	z-index: 5;
+}
+
+#ratings-overview .age {
+	display: flex;
+	flex-direction: column;	
+}
+
+#ratings-overview .age li {
+	margin-left: auto;
+}
+
+#ratings-overview .age li:last-child {
+	margin-right: 3px;
+}
+
+/* What's New ------- */
+
+#whats-new {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#whats-new ul {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+#whats-new h2 {
+	margin-bottom: 0;
+}
+
+#whats-new ul li:last-child {
+	margin-top: 8px;
+	color: #8E8E93;
+}
+
+#whats-new ul.versioning {
+	text-align: right;
+	margin-top: 4px;
+}
+
+#whats-new ul.versioning li:first-child {
+	font-size: 16px;
+}
+
+#whats-new .desc {
+	margin-top: 12px;
+	line-height: 20px;
+}
+
+/* Preview ------- */
+
+#preview {
+	border: none;
+	padding-bottom: 0;
+}
+
+#preview ul {
+	display: flex;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	margin-right: -20px;
+}
+
+#preview ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+#preview img {
+	border-radius: 6px;
+	margin-right: 10px;
+}
+
+/* Device Compatibility ------- */
+
+#device-compat {
+	padding: 12px 0 16px 5px;
+}
+
+#device-compat ul {
+	display: flex;
+}
+
+#device-compat ul li:first-child {
+	margin-top: 1px;
+}
+
+#device-compat ul li:last-child {
+	margin-left: 15px;
+	font-weight: 500;
+	color: #8E8E93;
+}
+
+/* Description ------- */
+
+#description {
+	padding-top: 15px;
+	line-height: 20px;
+	border: none;
+}
+
+/* Developer ------- */
+
+#developer {
+	padding-bottom: 30px;
+}
+
+#developer ul {
+	display: flex;
+	flex-direction: column;
+	background: url(images/chevron.png) center right no-repeat;
+	background-size: 9px 14px;
+}
+
+#developer li:first-child {
+	color: #8E8E93;
+	font-size: 13px;
+	margin-bottom: 2px;
+}
+
+/* Ratings & Reviews ------- */
+
+#ratings-reviews .heading {
+	display: flex;
+}
+
+#ratings-reviews .heading li:last-child {
+	font-size: 16px;
+	margin: 5px 0 0 auto;
+}
+
+#ratings-reviews .rating li:first-child {
+	font-size: 60px;
+	font-weight: 700;
+	letter-spacing: -2px;
+	line-height: 56px;
+	color: #4C4B50;
+}
+
+#ratings-reviews .rating li:last-child {
+	margin: 6px 0 0 18px;
+	font-size: 15px;
+	color: #8E8E93;
+	font-weight: 600;
+}
+
+#ratings-reviews .ratings,
+#ratings-reviews .ratings ul,
+#ratings-reviews .ratings ul ul {
+	display: flex;
+}
+
+#ratings-reviews .ratings ul {
+	flex-direction: column;
+}
+
+#ratings-reviews .ratings ul:first-child {
+	flex: 1;
+}
+
+#ratings-reviews .rating-totals {
+	flex: 3;
+}
+
+#ratings-reviews .rating-totals ul {
+	flex-direction: row;
+}
+
+#ratings-reviews .rating-totals li {
+	margin-bottom: -5px;
+}
+
+#ratings-reviews .rating-totals > li:last-child {
+	margin-top: 17px;
+	margin-bottom: 0;
+	text-align: right;
+	font-size: 15px;
+	color: #8E8E93;
+}
+
+#ratings-reviews .stars {
+	text-align: right;
+	width: 60px;
+	margin-right: 12px;
+}
+
+#ratings-reviews .stars img {
+	margin-left: -3px;
+}
+
+#ratings-reviews .total {
+	width: calc(100% - 72px);
+}
+
+#ratings-reviews .total div {
+	background: #E5E5EA;
+	height: 2px;
+	width: 100%;
+	margin-top: 11px;
+}
+
+#ratings-reviews .total div > div {
+	background: #8E8E93;
+}
+
+#ratings-reviews .five-stars div > div { width: 80%; }
+#ratings-reviews .four-stars div > div { width: 20%; }
+#ratings-reviews .three-stars div > div { width: 2%; }
+#ratings-reviews .two-stars div > div { width: 0; }
+#ratings-reviews .one-star div > div { width: 0; }
+
+/* Leave a Rating ------- */
+
+#leave-rating {
+	padding-top: 14px;
+}
+
+#leave-rating .tap-rate {
+	margin-bottom: 12px;
+}
+
+#leave-rating .tap-rate li:first-child {
+	font-size: 16px;
+	color: #8E8E93;
+	margin-top: 2px;
+}
+
+#leave-rating .tap-rate li:last-child {
+	margin-left: auto;
+}
+
+#leave-rating .tap-rate li:last-child img {
+	margin-left: 18px;
+}
+
+#leave-rating .links {
+	display: flex;
+}
+
+#leave-rating .links li:first-child a {
+	background: #fff url(images/write.png) top left no-repeat;
+	background-size: 15px 19px;
+	padding: 2px 0 0 24px;
+}
+
+#leave-rating .links li:last-child {
+	margin-left: auto;
+}
+
+#leave-rating .links li:last-child a {
+	background: #fff url(images/support.png) 0 1px no-repeat;
+	background-size: 17px 17px;
+	padding-left: 24px;
+}
+
+/* Information ------- */
+
+#information {
+	border: none;
+}
+
+#information ul {
+	display: flex;
+	flex-direction: column;
+}
+
+#information ul li {
+	display: flex;
+	border-bottom: 1px solid #E5E5EA;
+	padding: 12px 0;
+}
+
+#information ul li:last-child {
+	border: none;
+}
+
+#information h3 {
+	font-weight: 400;
+	font-size: 13px;
+	color: #8E8E93;
+} 
+
+#information p {
+	margin-left: auto;
+	font-size: 14px;
+}
+
+/* Footer ------- */
+
+footer {
+	background: #E6E5EB;
+	color: #8E8E93;
+	margin: 0 -20px -20px;
+	padding: 40px 20px 20px;
+}
