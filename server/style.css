@@ -50,6 +50,16 @@ h3 {
 	font-size: 13px;
 }
 
+/* Links -------- */
+
+.more {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-image: linear-gradient(to right, transparent 0%, white 45%);
+	padding-left: 50px;
+}
+
 /* Header ------- */
 
 #header {
@@ -212,8 +222,11 @@ h3 {
 }
 
 #whats-new .desc {
+	position: relative;
 	margin-top: 12px;
 	line-height: 20px;
+	max-height: 60px;
+	overflow: hidden;
 }
 
 /* Preview ------- */
@@ -263,9 +276,12 @@ h3 {
 /* Description ------- */
 
 #description {
+	position: relative;
 	padding-top: 15px;
 	line-height: 20px;
 	border: none;
+	max-height: 75px;
+	overflow: hidden;
 }
 
 /* Developer ------- */

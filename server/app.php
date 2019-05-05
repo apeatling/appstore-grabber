@@ -91,6 +91,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
 
             <div class="desc">
                 <p><?php echo $app->releaseNotes ?></p>
+                <a href="" class="more">more</a>
             </div>
         </div>
 
@@ -116,7 +117,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
         <div class="section" id="description">
             <p><?php echo str_replace( "\n", '<br>', $app->description ) ?></p>
 
-            <a href="">more</a>
+            <a href="" class="more">more</a>
         </div>
 
         <div class="section" id="developer">
