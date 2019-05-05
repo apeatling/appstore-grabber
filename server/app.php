@@ -16,9 +16,12 @@ if ( $response->resultCount == 0 ) {
 $app = $response->results[0];
 
 // Scrape missing or inaccurate data
-$app->tagline = get_scraped_tagline($app_id);
-$app->rating = get_scraped_rating($app_id);
-$app->ratings_count = get_scraped_ratings_count($app_id);
+$scraper = new Appstore_Scraper($app_id);
+$app->tagline = $scraper->get_tagline();
+$app->rating = $scraper->get_rating();
+$app->ratings_count = $scraper->get_ratings_count();
+
+// $app->ratings_count = get_scraped_ratings_count($app_id);
 
 
 
@@ -48,7 +51,7 @@ $app->ratings_count = get_scraped_ratings_count($app_id);
                 </li>
                 <li class="app-detail">
                     <h1><?php echo $app->trackCensoredName ?></h1>
-                    <p class="promo-line"><?php echo $app->artistName ?></p>
+                    <p class="promo-line"><?php echo $app->tagline ?></p>
                     
                     <ul class="action-buttons">
                         <li class="get-button"><button>GET</button></li>
@@ -61,14 +64,14 @@ $app->ratings_count = get_scraped_ratings_count($app_id);
         <div class="section" id="ratings-overview">
             <ul class="ratings">
                 <li>
-                    <h2><?php echo number_format($app->averageUserRating, 1) ?></h2>
+                    <h2><?php echo number_format($app->rating, 1) ?></h2>
 
                     <div class="stars">
-                    	<div class="rating" style="width: <?php echo ( floatval($app->averageUserRating) * 20 ) ?>%"></div>
+                    	<div class="rating-back" style="width: <?php echo ( floatval($app->rating) * 20 ) ?>%"></div>
                         <img src="images/stars.png" height="17" />
                     </div>
                 </li>
-                <li><?php echo number_format($app->userRatingCount) ?> Ratings</li>
+                <li><?php echo $app->ratings_count ?> Ratings</li>
             </ul>
 
             <ul class="age">
@@ -97,11 +100,11 @@ $app->ratings_count = get_scraped_ratings_count($app_id);
             <h2>Preview</h2>
 
             <ul>
-                <li><img src="<?php echo $app->screenshotUrls[0] ?>" alt="preview-1" width="220" height="390"></li>
-                <li><img src="<?php echo $app->screenshotUrls[1] ?>" alt="preview-2" width="220" height="390"></li>
-                <li><img src="<?php echo $app->screenshotUrls[2] ?>" alt="preview-3" width="220" height="390"></li>
-                <li><img src="<?php echo $app->screenshotUrls[3] ?>" alt="preview-4" width="220" height="390"></li>
-                <li><img src="<?php echo $app->screenshotUrls[4] ?>" alt="preview-5" width="220" height="390"></li>
+                <li><img src="<?php echo $app->screenshotUrls[0] ?>" alt="preview-1" height="390"></li>
+                <li><img src="<?php echo $app->screenshotUrls[1] ?>" alt="preview-2" height="390"></li>
+                <li><img src="<?php echo $app->screenshotUrls[2] ?>" alt="preview-3" height="390"></li>
+                <li><img src="<?php echo $app->screenshotUrls[3] ?>" alt="preview-4" height="390"></li>
+                <li><img src="<?php echo $app->screenshotUrls[4] ?>" alt="preview-5" height="390"></li>
             </ul>     
         </div>
 
@@ -133,7 +136,7 @@ $app->ratings_count = get_scraped_ratings_count($app_id);
 
             <div class="ratings">
                 <ul class="rating">
-                    <li><?php echo number_format($app->averageUserRating, 1) ?></li>
+                    <li><?php echo number_format($app->rating, 1) ?></li>
                     <li>out of 5</li>
                 </ul>
 
@@ -209,7 +212,7 @@ $app->ratings_count = get_scraped_ratings_count($app_id);
                         </ul>
                     </li>
 
-                    <li><?php echo $app->userRatingCount ?> Ratings</li>
+                    <li><?php echo $app->ratings_count ?> Ratings</li>
                 </ul>
             </div>
         </div>

@@ -63,6 +63,7 @@ h3 {
 
 #header .icon img {
 	border-radius: 30px;
+	border: 1px solid #eee;
 }
 
 #header .app-detail {
@@ -156,7 +157,7 @@ h3 {
 	z-index: 10;
 }
 
-#ratings-overview .stars .rating {
+#ratings-overview .stars .rating-back {
 	position: absolute;
 	top: 0;
 	left: 0;

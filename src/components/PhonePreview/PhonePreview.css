@@ -13,18 +13,18 @@
 
 .phone-preview .iframe-holder {
 	position: absolute;
-	top: 94px;
-	left: 102px;
-	border-radius: 44px;
+	top: 142px;
+	left: 104px;
+	border-radius: 0 0 44px 44px;
 	overflow: hidden;
 	transform: translateY(0px);
 	background: #fff;
-	width: 432px;
-	height: 942px;
+	width: 430px;
+	height: 893px;
 }
 
 .phone-preview iframe {
 	border: none;
-	width: 434px;
-	height: 942px;
+	width: 430px;
+	height: 939px;
 }
