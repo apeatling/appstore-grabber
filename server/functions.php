@@ -68,6 +68,18 @@ class Appstore_Scraper {
 
     	return $ratings_count;
     }
+
+    public function get_ratings_bar_widths() {
+    	$elements = $this->xpath->query('//div[contains(@class,"we-star-bar-graph__bar__foreground-bar")]');
+    	
+    	$widths = [];
+    	foreach( $elements as $bar ) {
+			$style_attr_val = $bar->attributes->item(1)->value;
+			$widths[] = substr( explode( " ", $bar->attributes->item(1)->value )[1], 0, -1);
+    	}
+		
+		return $widths;    	
+    }
 }
 
 function formatBytes($bytes, $precision = 2) { 

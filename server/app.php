@@ -20,9 +20,7 @@ $scraper = new Appstore_Scraper($app_id);
 $app->tagline = $scraper->get_tagline();
 $app->rating = $scraper->get_rating();
 $app->ratings_count = $scraper->get_ratings_count();
-
-// $app->ratings_count = get_scraped_ratings_count($app_id);
-
+$app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
 
 
 // header("Content-type: application/json; charset=utf-8");
@@ -51,7 +49,7 @@ $app->ratings_count = $scraper->get_ratings_count();
                 </li>
                 <li class="app-detail">
                     <h1><?php echo $app->trackCensoredName ?></h1>
-                    <p class="promo-line"><?php echo $app->tagline ?></p>
+                    <p class="promo-line"><?php echo ( empty( $app->tagline ) ) ? $app->artistName : $app->tagline ?></p>
                     
                     <ul class="action-buttons">
                         <li class="get-button"><button>GET</button></li>
@@ -152,7 +150,7 @@ $app->ratings_count = $scraper->get_ratings_count();
                             </li>
                             <li class="total five-stars">
                                 <div>
-                                    <div></div>
+                                    <div class="barfront" style="width: <?php echo $app->ratings_bar_sizes[0] ?>;"></div>
                                 </div>
                             </li>
                         </ul>
@@ -166,8 +164,8 @@ $app->ratings_count = $scraper->get_ratings_count();
                                 <img src="images/stars/full.png" width="6" height="6">
                             </li>
                             <li class="total four-stars">
-                                <div>
-                                    <div></div>
+                                <div class="barback">
+                                    <div class="barfront" style="width: <?php echo $app->ratings_bar_sizes[1] ?>;"></div>
                                 </div>
                             </li>
                         </ul>
@@ -180,8 +178,8 @@ $app->ratings_count = $scraper->get_ratings_count();
                                 <img src="images/stars/full.png" width="6" height="6">
                             </li>
                             <li class="total three-stars">
-                                <div>
-                                    <div></div>
+                                <div class="barback">
+                                    <div class="barfront" style="width: <?php echo $app->ratings_bar_sizes[2] ?>;"></div>
                                 </div>
                             </li>
                         </ul>
@@ -193,8 +191,8 @@ $app->ratings_count = $scraper->get_ratings_count();
                                 <img src="images/stars/full.png" width="6" height="6">
                             </li>
                             <li class="total two-stars">
-                                <div>
-                                    <div></div>
+                                <div class="barback">
+                                    <div class="barfront" style="width: <?php echo $app->ratings_bar_sizes[3] ?>;"></div>
                                 </div>
                             </li>
                         </ul>
@@ -205,8 +203,8 @@ $app->ratings_count = $scraper->get_ratings_count();
                                 <img src="images/stars/full.png" width="6" height="6">
                             </li>
                             <li class="total one-star">
-                                <div>
-                                    <div></div>
+                                <div class="barback">
+                                    <div class="barfront" style="width: <?php echo $app->ratings_bar_sizes[4] ?>;"></div>
                                 </div>
                             </li>
                         </ul>
@@ -249,7 +247,7 @@ $app->ratings_count = $scraper->get_ratings_count();
                 </li>
                 <li>
                     <h3>Category</h3>
-                    <p><?php echo $app->genres[0] ?></p>
+                    <p><?php echo $app->primaryGenreName ?></p>
                 </li>
                 <li>
                     <h3>Compatibility</h3>
@@ -274,9 +272,7 @@ $app->ratings_count = $scraper->get_ratings_count();
             </ul>
         </div>
 
-        <footer>
-            <p>&copy; <?php echo date('Y'); ?> Andy Peatling</p>
-        </footer>
+        <footer></footer>
     </body>
 </html>
 
