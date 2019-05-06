@@ -42,7 +42,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
         <title></title>
     </head>
     <body>
-        <div class="section" id="header">
+        <section id="header">
             <ul>
                 <li class="icon">
                     <img src="<?php echo $app->artworkUrl512 ?>" alt="App Icon" width="118" height="118">
@@ -57,9 +57,9 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                     </p>
                 </li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section" id="ratings-overview">
+        <section id="ratings-overview">
             <ul class="ratings">
                 <li>
                     <h2><?php echo number_format($app->rating, 1) ?></h2>
@@ -76,9 +76,9 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                 <li><h2><?php echo $app->contentAdvisoryRating ?></h2></li>
                 <li>Age</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section" id="whats-new">
+        <section id="whats-new">
             <ul>
                 <li><h2>What's New</h2></li>
                 <li>Version <?php echo $app->version ?></li>
@@ -93,41 +93,59 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                 <p><?php echo $app->releaseNotes ?></p>
                 <a href="" class="more">more</a>
             </div>
-        </div>
+        </section>
 
-        <div class="section" id="preview">
+        <section id="preview">
             <h2>Preview</h2>
 
             <ul>
-                <li><img src="<?php echo $app->screenshotUrls[0] ?>" alt="preview-1" height="390"></li>
-                <li><img src="<?php echo $app->screenshotUrls[1] ?>" alt="preview-2" height="390"></li>
-                <li><img src="<?php echo $app->screenshotUrls[2] ?>" alt="preview-3" height="390"></li>
-                <li><img src="<?php echo $app->screenshotUrls[3] ?>" alt="preview-4" height="390"></li>
-                <li><img src="<?php echo $app->screenshotUrls[4] ?>" alt="preview-5" height="390"></li>
-            </ul>     
-        </div>
-
-        <div class="section" id="device-compat">
-            <ul>
-                <li><img src="images/iphone-icon.png" alt="device-iphone" width="10" height="16"></li>
-                <li>iPhone</li>
+                <?php foreach( (array)$app->screenshotUrls as $screenshotUrl ) { ?>
+                <li><img src="<?php echo $screenshotUrl ?>" alt="screenshot" height="390"></li>
+                <?php } ?>
             </ul>
-        </div>
 
-        <div class="section" id="description">
+            <?php if ( !empty($app->ipadScreenshotUrls ) ) { ?>
+            <div class="ipad-preview">
+                <p class="device-name">
+                    <img src="images/iphone-icon.png" alt="device-iphone" width="10" height="16"> 
+                    iPhone
+                </p>
+
+                <ul>
+                    <?php foreach( (array)$app->ipadScreenshotUrls as $screenshotUrl ) { ?>
+                    <li><img src="<?php echo $screenshotUrl ?>" alt="screenshot" height="390"></li>
+                    <?php } ?>
+                </ul> 
+                <?php } ?> 
+            </div>   
+        </section>
+
+        <section id="device-compat">
+            <ul>
+                <?php if ( !empty($app->ipadScreenshotUrls ) ) { ?>
+                    <li><img src="images/iphone-icon.png" alt="device-iphone" width="10" height="16"></li>
+                    <li>Offers iPad App</li>
+                <?php } else { ?>
+                    <li><img src="images/iphone-icon.png" alt="device-iphone" width="10" height="16"></li>
+                    <li>iPhone</li>
+                <?php } ?>
+            </ul>
+        </section>
+
+        <section id="description">
             <p><?php echo str_replace( "\n", '<br>', $app->description ) ?></p>
 
             <a href="" class="more">more</a>
-        </div>
+        </section>
 
-        <div class="section" id="developer">
+        <section id="developer">
             <ul>
                 <li>Developer</li>
                 <li><a href=""><?php echo $app->artistName ?></a></li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section" id="ratings-reviews">
+        <section id="ratings-reviews">
             <ul class="heading">
                 <li><h2>Ratings &amp; Reviews</h2></li>
                 <li><a href="">See All</a></li>
@@ -214,9 +232,9 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                     <li><?php echo $app->ratings_count ?> Ratings</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="section" id="leave-rating">
+        <section id="leave-rating">
             <ul class="tap-rate">
                 <li>Tap to Rate:</li>
                 <li>
@@ -232,9 +250,9 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                 <li><a href="">Write a Review</a></li>
                 <li><a href="">App Support</a></li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section" id="information">
+        <section id="information">
             <h2>Information</h2>
 
             <ul>
@@ -271,7 +289,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                     <p><a href="">[H]</a></p>
                 </li>
             </ul>
-        </div>
+        </section>
 
         <footer></footer>
     </body>
