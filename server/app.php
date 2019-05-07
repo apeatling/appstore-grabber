@@ -36,8 +36,8 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="images/icon.png">
         <link rel="stylesheet" href="style.css">
+        <script src="app.js"></script>
 
         <title></title>
     </head>
@@ -90,7 +90,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
             </ul>
 
             <div class="desc">
-                <p><?php echo $app->releaseNotes ?></p>
+                <p><?php echo str_replace( "\n", '<br>', $app->releaseNotes ) ?></p>
                 <a href="" class="more">more</a>
             </div>
         </section>
@@ -120,7 +120,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
             </div>   
         </section>
 
-        <section id="device-compat">
+        <section id="device-compat"<?php if ( !empty($app->ipadScreenshotUrls ) ) { ?> class="has-ipad"<?php } ?>>
             <ul>
                 <?php if ( !empty($app->ipadScreenshotUrls ) ) { ?>
                     <li><img src="images/iphone-icon.png" alt="device-iphone" width="10" height="16"></li>
@@ -140,8 +140,8 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
 
         <section id="developer">
             <ul>
-                <li>Developer</li>
                 <li><a href=""><?php echo $app->artistName ?></a></li>
+                <li>Developer</li>  
             </ul>
         </section>
 
