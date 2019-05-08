@@ -10,4 +10,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			e.target.parentElement.classList.add("expand");
 		});
 	}
+
+	var whatsNewSection = document.querySelector("#whats-new .desc");
+	var descSection = document.getElementById("description");
+
+	if ( whatsNewSection.clientHeight < 60 ) {
+		whatsNewSection.classList.add("expand");
+	}
+
+	if ( descSection.clientHeight < 75 ) {
+		descSection.classList.add("expand");
+	}
 });
