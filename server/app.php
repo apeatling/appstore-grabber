@@ -21,11 +21,6 @@ $app->tagline = $scraper->get_tagline();
 $app->rating = $scraper->get_rating();
 $app->ratings_count = $scraper->get_ratings_count();
 $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
-
-
-// header("Content-type: application/json; charset=utf-8");
-// echo json_encode($app);
-// die;
 ?>
 
 
