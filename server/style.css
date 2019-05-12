@@ -131,20 +131,38 @@ h3 {
 	height: 50px;
 	background: #fff;
 	border: none;
+	opacity: 0;
+	transition: linear 0.2s opacity;
+}
+
+.show-scroll-header #scroll-header {
+	opacity: 1;
+}
+
+#scroll-header img, #scroll-header button {
+	position: absolute;
+	transition: linear 0.1s top;
 }
 
 #scroll-header img {
-	position: absolute;
 	left: calc(50% - 14px);
-	top: calc(50% - 14px);
+	top: calc(50% - 11px);
 	height: 28px;
 	width: 28px;
 	border-radius: 7px;
 }
 
+.show-scroll-header #scroll-header img {
+	top: calc(50% - 14px);
+}
+
 #scroll-header button {
 	position: absolute;
 	right: 10px;
+	top: calc(50% - 10px);	
+}
+
+.show-scroll-header #scroll-header button {
 	top: calc(50% - 13px);	
 }
 

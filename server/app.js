@@ -1,24 +1,46 @@
-document.addEventListener("DOMContentLoaded", function(event) {
-	document.getElementById("device-compat").addEventListener("click", function(e) {
-		document.body.classList.add("show-ipad");
-	});
+var appStoreTemplate = {
+	domLoaded: function(e) {
+		appStoreTemplate.handleIpadScreenshots();
+		appStoreTemplate.handleScrollHeader();
+		appStoreTemplate.handleMoreLinks();
+	},
 
-	var moreLinks = document.getElementsByClassName("more")
-	for( var i = 0; i < moreLinks.length; i++) {
-		moreLinks[i].addEventListener("click", function(e) {
-			e.preventDefault();
-			e.target.parentElement.classList.add("expand");
+	handleIpadScreenshots: function() {
+		document.getElementById("device-compat").addEventListener("click", function(e) {
+			document.body.classList.add("show-ipad");
 		});
-	}
+	},
 
-	var whatsNewSection = document.querySelector("#whats-new .desc");
-	var descSection = document.getElementById("description");
+	handleScrollHeader: function() {
+		setInterval( function() {
+			if ( window.scrollY > 125 ) {
+				document.body.classList.add("show-scroll-header");
+			} else {
+				document.body.classList.remove("show-scroll-header");
+			}
+		}, 100 );
+	},
 
-	if ( whatsNewSection.clientHeight < 60 ) {
-		whatsNewSection.classList.add("expand");
-	}
+	handleMoreLinks: function() {
+		var moreLinks = document.getElementsByClassName("more")
+		for( var i = 0; i < moreLinks.length; i++) {
+			moreLinks[i].addEventListener("click", function(e) {
+				e.preventDefault();
+				e.target.parentElement.classList.add("expand");
+			});
+		}
 
-	if ( descSection.clientHeight < 75 ) {
-		descSection.classList.add("expand");
+		var whatsNewSection = document.querySelector("#whats-new .desc");
+		var descSection = document.getElementById("description");
+
+		if ( whatsNewSection.clientHeight < 60 ) {
+			whatsNewSection.classList.add("expand");
+		}
+
+		if ( descSection.clientHeight < 75 ) {
+			descSection.classList.add("expand");
+		}
 	}
-});
+}
+
+document.addEventListener("DOMContentLoaded", appStoreTemplate.domLoaded);
