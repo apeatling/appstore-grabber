@@ -95,13 +95,14 @@ h3 {
 	display: flex;
 	flex-direction: column;
 	flex: 2;
+	flex-grow: 100;
 	margin-left: 20px;
 }
 
 #header .promo-line {
 	margin: 5px 0 15px;
 	color: #8E8E93;
-	font-size: 15px;
+	font-size: 14.5px;
 }
 
 #header .share-button {
@@ -170,7 +171,7 @@ h3 {
 
 #ratings-overview {
 	display: flex;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 
 #ratings-overview ul:first-child {
@@ -198,7 +199,7 @@ h3 {
 #ratings-overview .ratings li:last-child,
 #ratings-overview .age li:last-child {
 	color: #D1D1D6;
-	font-size: 13px;
+	font-size: 12px;
 }
 
 #ratings-overview h2 {
@@ -277,6 +278,7 @@ h3 {
 	line-height: 20px;
 	max-height: 60px;
 	overflow: hidden;
+	width: 100%;
 }
 
 #whats-new .desc.expand {
@@ -419,6 +421,7 @@ h3 {
 	font-weight: 700;
 	letter-spacing: -2px;
 	line-height: 56px;
+	text-align: center;
 	color: #4C4B50;
 }
 
@@ -445,6 +448,7 @@ h3 {
 
 #ratings-reviews .rating-totals {
 	flex: 3;
+	flex-grow: 100;
 }
 
 #ratings-reviews .rating-totals ul {
@@ -497,7 +501,7 @@ h3 {
 /* Leave a Rating ------- */
 
 #leave-rating {
-	padding-top: 14px;
+	padding: 15px 0 30px;
 }
 
 #leave-rating .tap-rate {

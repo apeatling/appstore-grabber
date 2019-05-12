@@ -1,9 +1,20 @@
 var appStoreTemplate = {
 	domLoaded: function(e) {
+		appStoreTemplate.blockAllLinks();
 		appStoreTemplate.handleIpadScreenshots();
 		appStoreTemplate.handleScrollHeader();
 		appStoreTemplate.handleMoreLinks();
 	},
+
+	blockAllLinks: function() {
+		var anchors = document.getElementsByTagName("a");
+
+		for (var i = 0; i < anchors.length; i++) {
+   			anchors[i].addEventListener('click', function(e) {
+   				e.preventDefault();
+   			});
+		}
+	},	
 
 	handleIpadScreenshots: function() {
 		document.getElementById("device-compat").addEventListener("click", function(e) {

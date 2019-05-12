@@ -21,8 +21,11 @@ $app->tagline = $scraper->get_tagline();
 $app->rating = $scraper->get_rating();
 $app->ratings_count = $scraper->get_ratings_count();
 $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
-?>
 
+// header("Content-type: application/json; charset=utf-8"); 
+// echo json_encode($app);  
+// die;
+?>
 
 <!doctype html>
 <html class="no-js" lang="">
@@ -32,7 +35,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="style.css?<?php echo rand() ?>">
-        <script src="app.js"></script>
+        <script src="app.js?<?php echo rand() ?>"></script>
 
         <title></title>
     </head>
@@ -269,19 +272,27 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                 </li>
                 <li>
                     <h3>Languages</h3>
-                    <p>English</p>
+                    <p>English<?php if ( count($app->languageCodesISO2A) > 1 ) { ?> and <?php echo count($app->languageCodesISO2A) - 1 ?> more<?php } ?></p>
                 </li>
                 <li>
                     <h3>Age Rating</h3>
                     <p><?php echo $app->contentAdvisoryRating ?></p>
                 </li>
                 <li>
-                    <h3><a href="">Developer Website</a></h3>
-                    <p><a href="">O</a></p>
+                    <h3>Copyright</h3>
+                    <p>&copy; <?php echo $app->artistName ?></p>
                 </li>
                 <li>
-                    <h3><a href="">Privacy Policy</a></h3>
-                    <p><a href="">[H]</a></p>
+                    <h3><a href="<?php echo $app->sellerUrl ?>">Developer Website</a></h3>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/website.png" height="15" alt="Website"></a></p>
+                </li>
+                <li>
+                    <h3><a href="<?php echo $app->sellerUrl ?>">Privacy Policy</a></h3>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/privacy.png" height="15" alt="Privacy"></a></p>
+                </li>
+                <li>
+                    <h3><a href="<?php echo $app->sellerUrl ?>">License Agreement</a></h3>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/license.png" height="15" alt="License"></a></p>
                 </li>
             </ul>
         </section>
