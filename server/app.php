@@ -31,7 +31,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css?<?php echo rand() ?>">
         <script src="app.js"></script>
 
         <title></title>
@@ -284,6 +284,11 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                     <p><a href="">[H]</a></p>
                 </li>
             </ul>
+        </section>
+
+        <section id="scroll-header">
+            <img src="<?php echo $app->artworkUrl100 ?>" alt="App Icon" width="28" height="28">
+            <button>GET</button>
         </section>
 
         <footer></footer>
