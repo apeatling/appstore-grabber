@@ -1,6 +1,7 @@
 var appStoreTemplate = {
 	domLoaded: function(e) {
 		appStoreTemplate.blockAllLinks();
+
 		appStoreTemplate.handleIpadScreenshots();
 		appStoreTemplate.handleScrollHeader();
 		appStoreTemplate.handleMoreLinks();
@@ -10,6 +11,8 @@ var appStoreTemplate = {
 		var anchors = document.getElementsByTagName("a");
 
 		for (var i = 0; i < anchors.length; i++) {
+			if( anchors[i].classList.contains('get-button') ) continue;
+
    			anchors[i].addEventListener('click', function(e) {
    				e.preventDefault();
    			});

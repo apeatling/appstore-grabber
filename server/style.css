@@ -22,17 +22,6 @@ ul {
 	list-style: none
 }
 
-button {
-	background: #007AFF;
-	border-radius: 15px;
-	border: none;
-	height: 27px;
-	min-width: 72px;
-	color: #fff;
-	font-size: 14px;
-	font-weight: 600;
-}
-
 /* Sections ------- */
 
 section {
@@ -75,6 +64,19 @@ h3 {
 	display: none;
 }
 
+.get-button {
+	display: inline-block;
+	background: #007AFF;
+	border-radius: 15px;
+	border: none;
+	min-width: 72px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
+	padding: 5px 0 6px;
+}
+
 /* Header ------- */
 
 #header {
@@ -105,20 +107,23 @@ h3 {
 	font-size: 14.5px;
 }
 
-#header .share-button {
-	margin-left: auto;
-}
-
 #header .action-buttons {
 	margin-top: auto;
 }
 
-#header .share-button button {
+#header .share {
+	margin-left: auto;
+}
+
+#header .share-button {
 	min-width: 27px;
 	font-size: 25px;
 	letter-spacing: -0.07em;
 	background: #007AFF url(images/share-dots@3x.png) center center no-repeat;
 	background-size: 16px 4px;
+	display: inline-block;
+	padding: 15px;
+	border-radius: 50%;
 }
 
 /* Scroll Header ------- */
@@ -140,7 +145,7 @@ h3 {
 	opacity: 1;
 }
 
-#scroll-header img, #scroll-header button {
+#scroll-header img, #scroll-header .get-button {
 	position: absolute;
 	transition: linear 0.1s top;
 }
@@ -157,13 +162,13 @@ h3 {
 	top: calc(50% - 14px);
 }
 
-#scroll-header button {
+#scroll-header .get-button {
 	position: absolute;
 	right: 10px;
 	top: calc(50% - 10px);	
 }
 
-.show-scroll-header #scroll-header button {
+.show-scroll-header #scroll-header .get-button {
 	top: calc(50% - 13px);	
 }
 

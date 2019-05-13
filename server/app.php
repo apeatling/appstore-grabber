@@ -50,8 +50,8 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                     <p class="promo-line"><?php echo ( empty( $app->tagline ) ) ? $app->artistName : $app->tagline ?></p>
                     
                     <ul class="action-buttons">
-                        <li class="get-button"><button>GET</button></li>
-                        <li class="share-button"><button></button></li>
+                        <li class="get"><a href="<?php echo $app->trackViewUrl ?>" class="get-button">GET</a></li>
+                        <li class="share"><a href="" class="share-button"></a></li>
                     </p>
                 </li>
             </ul>
@@ -299,7 +299,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
 
         <section id="scroll-header">
             <img src="<?php echo $app->artworkUrl100 ?>" alt="App Icon" width="28" height="28">
-            <button>GET</button>
+            <a href="<?php echo $app->trackViewUrl ?>" class="get-button">GET</a>
         </section>
 
         <footer></footer>
