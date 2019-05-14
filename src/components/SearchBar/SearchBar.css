@@ -1,6 +1,7 @@
 .search-bar {
-	padding: 300px 0 30px;
 	position: fixed;
+	left: 0;
+	padding: calc(40% - 50px) 0 30px;
 	width: 100%;
 	z-index: 100;
 }

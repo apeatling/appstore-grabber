@@ -1,0 +1,13 @@
+.download-prompt {
+	color: #fff;
+}
+
+.download-prompt h1 {
+	font-size: 40px;
+	font-weight: 800;
+}
+
+.download-prompt p {
+	font-size: 18px;
+	line-height: 140%;
+}

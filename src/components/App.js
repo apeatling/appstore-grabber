@@ -2,7 +2,7 @@ import React from 'react';
 import AppStore from '../api/AppStore';
 import SearchBar from './SearchBar/SearchBar';
 import AppStoreListing from './AppStoreListing/AppStoreListing';
-import PhonePreview from './PhonePreview/PhonePreview';
+import AppStorePage from './AppStorePage/AppStorePage';
 
 class App extends React.Component {
 	state = {
@@ -69,14 +69,10 @@ class App extends React.Component {
 
 		return className;
 	}
-
-	renderAppStoreListing() {
-		
-	}
 	
 	renderPage() {
 		if ( this.state.apps.length > 0 ) {
-			return( 
+			return (
 				<AppStoreListing 
 					onAppClick={this.onAppClick}
 					apps={this.state.apps}
@@ -86,7 +82,11 @@ class App extends React.Component {
 
 		if ( !this.state.apps.length && this.state.selectedApp ) {
 			return(
-				<PhonePreview frameURL={`http://appstore.local:8888/app.php?id=${this.state.selectedApp.key}`} />
+				<AppStorePage
+					appID={this.state.selectedApp.key}
+					title="Here's your App Store page!"
+					prompt="Download this page using the button below and then make adjustments to it. You can use your adjusted page to run split tests and optimize your conversion rate."
+				/>
 			);
 		}
 	}
@@ -102,7 +102,6 @@ class App extends React.Component {
 				/>
 
 				{this.renderPage()}
-				{this.renderAppStoreListing()}
 			</div>
 		);
 	}

@@ -8,6 +8,8 @@ body {
 #root {
 	position: relative;
 	z-index: 2;
+	max-width: 760px;
+	margin: 0 auto;
 }
 
 #blur {
