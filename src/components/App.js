@@ -11,6 +11,9 @@ class App extends React.Component {
 		isLoading: false
 	}
 
+	appListingTimeout = null
+	selectedAppTimeout = null
+
 	onSearchSubmit = async (term) => {
 		this.setState( {
 			isLoading: true, 
@@ -33,20 +36,31 @@ class App extends React.Component {
 			};
 		});
 
-		setTimeout( () => {
+		this.appListingTimeout = setTimeout( () => {
+			if ( apps.length > 0 ) {
+				document.body.classList.add('listing-apps');
+			}
+
 			this.setState({ apps, isLoading: false });
 		}, ( term.length === 0 ? 0 : 1000 ) );
 	}
 
 	onAppClick = (app) => {
+		document.body.classList.add('selected-app');
 		this.setState({ selectedApp: app });
 
-		setTimeout( () => {
+		this.selectedAppTimeout = setTimeout( () => {
+			document.body.classList.remove('listing-apps');
 			this.setState({ apps: [] });
 		}, 1000 );
 	}
 
 	onCancelButtonClick = () => {
+		clearTimeout(this.appListingTimeout);
+		clearTimeout(this.selectedAppTimeout);
+
+		document.body.classList.remove('listing-apps', 'selected-app');
+
 		this.setState( {
 			apps: [],
 			selectedApp: null,
@@ -54,22 +68,6 @@ class App extends React.Component {
 		});
 	}
 
-	getClassName() {
-		let className = 'app';
-
-		if ( this.state.apps.length ) {
-			className += ' has-apps-listed';
-		} else {
-			className += ' no-apps-listed';
-		}
-
-		if ( this.state.selectedApp ) {
-			className += ' selected-app';
-		}
-
-		return className;
-	}
-	
 	renderPage() {
 		if ( this.state.apps.length > 0 ) {
 			return (
@@ -93,7 +91,9 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className={this.getClassName()}>
+			<div className="app">
+				<img src={'/images/logo.png'} alt="App Store Page Grabber" className="logo" />
+
 				<SearchBar 
 					onSearchSubmit={this.onSearchSubmit}
 					onCancelButtonClick={this.onCancelButtonClick}

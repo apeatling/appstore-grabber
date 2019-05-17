@@ -1,12 +1,12 @@
 .app-icon-holder {
 	position: absolute;
-	top: 11px;
+	top: 12px;
 	left: 13px;
 	width: 33px;
 	height: 33px;
 
 	background: transparent;
-	border: 2px dotted rgba(0, 0, 0, 0.3);
+	border: 1px dotted rgba(0, 0, 0, 0.3);
 	border-radius: 9px;
 }
 
@@ -20,6 +20,6 @@
 	opacity: 1;
 }
 
-.selected-app.has-apps-listed .app-icon-holder img {
+.selected-app.listing-apps .app-icon-holder img {
 	opacity: 0;
 }

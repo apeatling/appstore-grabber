@@ -39,6 +39,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
 
         <title></title>
     </head>
+
     <body>
         <section id="header">
             <ul>
@@ -268,7 +269,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
                 </li>
                 <li>
                     <h3>Compatibility</h3>
-                    <p>Works on this iPhone</p>
+                    <p>Works on this Device</p>
                 </li>
                 <li>
                     <h3>Languages</h3>

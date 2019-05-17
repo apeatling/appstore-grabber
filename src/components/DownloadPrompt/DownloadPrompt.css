@@ -1,5 +1,6 @@
 .download-prompt {
 	color: #fff;
+	font-size: 18px;
 }
 
 .download-prompt h1 {
@@ -8,6 +9,27 @@
 }
 
 .download-prompt p {
-	font-size: 18px;
 	line-height: 140%;
+}
+
+.download-prompt .button {
+	display: inline-block;
+	background: rgba(0, 0, 0, 0.3);
+	color: #fff;
+	text-decoration: none;
+	padding: 15px 30px;
+	margin-top: 10px;
+	border-radius: 6px;
+	font-size: 20px;
+	font-weight: 600;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.download-prompt .or {
+	color: rgba(255, 255, 255, 0.7);
+	padding: 0 10px;
+}
+
+.download-prompt .full-preview {
+	color: rgba(255, 255, 255, 0.9);
 }

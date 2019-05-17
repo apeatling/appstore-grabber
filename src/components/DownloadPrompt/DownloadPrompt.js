@@ -6,7 +6,8 @@ const DownloadPrompt = (props) => {
 		<div className="download-prompt">
 			{props.children}
 
-			<button>Download</button>
+			<a className="button download" href="">Download</a> <span className="or">or</span>  
+			<a className="full-preview" href="" target="_blank">Preview Full Size</a>
 		</div>
 	);
 };

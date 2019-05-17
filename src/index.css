@@ -11,6 +11,26 @@ body {
 	max-width: 760px;
 	margin: 0 auto;
 }
+
+.logo {
+    width: 304px;
+    height: 127px;
+    position: fixed;
+    left: calc(50% - 152px);
+    padding-top: calc(40% - 200px);
+    opacity: 1;
+   	transition-property: opacity;
+	transition-duration: 0.2s;
+}
+
+.searching .logo {
+    opacity: 0;
+}
+
+.waiting .logo {
+		transition-delay: 0.4s;
+}
+
 /*
 #blur {
 	position: fixed;

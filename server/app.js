@@ -56,5 +56,4 @@ var appStoreTemplate = {
 		}
 	}
 }
-
 document.addEventListener("DOMContentLoaded", appStoreTemplate.domLoaded);

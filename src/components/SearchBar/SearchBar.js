@@ -33,8 +33,7 @@ class SearchBar extends React.Component {
 		clearTimeout( window.timeout );
 
 		if ( e.target.value.length < 1 ) {
-			this.clearForm();
-			this.props.onSearchSubmit('');
+			this.onCancelButtonClick()
 
 			return;
 		}
