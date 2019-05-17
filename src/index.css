@@ -11,7 +11,7 @@ body {
 	max-width: 760px;
 	margin: 0 auto;
 }
-
+/*
 #blur {
 	position: fixed;
 	z-index: 1;
@@ -21,4 +21,4 @@ body {
 	height: 100%;
 	backdrop-filter: blur(100px);
 	background: rgba(0,0,0,0.4);
-}
+}*/
