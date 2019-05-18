@@ -15,9 +15,10 @@ class AppStoreListing extends React.Component {
 	renderApps() {
 		return this.props.apps.map((app, i) => {
 			let className = "";
+			let shouldFocus = false
 
-			if ( i === this.props.highlightIndex ) {
-				className = "highlight"
+			if ( (i + 1) === this.props.focusTabIndex ) {
+				shouldFocus = true;
 			}
 
 			if ( this.state.selectedApp ) {
@@ -29,16 +30,18 @@ class AppStoreListing extends React.Component {
 			}
 
 			return <AppStoreItem 
+						tabIndex={i+1}
 						app={app} 
 						key={app.key} 
 						onAppClick={this.onAppClick}
 						className={className}
+						shouldFocus={shouldFocus}
+						onAppMouseEnter={this.props.onAppMouseEnter}
 					/>
 		});
 	}
 
 	render() {
-		console.log(this.props.highlightIndex);
 		return (
 			<div className="appstore-listing">
 				<ul>

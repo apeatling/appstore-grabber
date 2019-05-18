@@ -9,7 +9,7 @@ class App extends React.Component {
 		apps: [],
 		selectedApp: null,
 		isLoading: false,
-		highlightIndex: -1
+		focusTabIndex: 0
 	}
 
 	appListingTimeout = null
@@ -19,7 +19,7 @@ class App extends React.Component {
 		this.setState( {
 			isLoading: true, 
 			selectedApp: null,
-			highlightIndex: -1
+			focusTabIndex: 0
 		});
 
 		const response = await AppStore.get( '/', {
@@ -57,25 +57,47 @@ class App extends React.Component {
 		}, 1000 );
 	}
 
-	onArrowKeyPress = (direction) => {
+	onAppMouseEnter = (tabIndex) => {
+		this.setState({ focusTabIndex: tabIndex });
+	}
+
+	onAppKeyDown = e => {
 		if ( this.state.apps.length < 1 ) {
 			return;
 		}
 
-		if ( direction === 'up' ) {
-			if ( this.state.highlightIndex === 0 ) {
-				return;
-			}
-
-			this.setState({ highlightIndex: (this.state.highlightIndex - 1) });
+		const charCode = e.keyCode || e.which;
+		
+		// 38 == up arrow, 40 == down arrow, 13 == return key
+		if ( charCode !== 38 && charCode !== 40 && charCode !== 13 ) {
+			return;
 		}
 
-		if ( direction === 'down' ) {
-			if ( this.state.highlightIndex === (this.state.apps.length - 1) ) {
+		// Arrow up
+		if ( charCode === 38 ) {
+			if ( this.state.focusTabIndex === 0 ) {
 				return;
 			}
 
-			this.setState({ highlightIndex: (this.state.highlightIndex + 1) });
+			this.setState({ 
+				focusTabIndex: (this.state.focusTabIndex - 1)
+			});
+		}
+
+		// Arrow down
+		if ( charCode === 40 ) {
+			if ( this.state.focusTabIndex === (this.state.apps.length - 1) ) {
+				return;
+			}
+
+			this.setState({ 
+				focusTabIndex: (this.state.focusTabIndex + 1)
+			});
+		}
+
+		// Return key
+		if ( charCode === 13 ) {
+			// TODO: select the focused app when hitting return.
 		}
 	}
 
@@ -88,7 +110,8 @@ class App extends React.Component {
 		this.setState( {
 			apps: [],
 			selectedApp: null,
-			isLoading: false
+			isLoading: false,
+			focusTabIndex: 0
 		});
 	}
 
@@ -98,7 +121,8 @@ class App extends React.Component {
 				<AppStoreListing 
 					onAppClick={this.onAppClick}
 					apps={this.state.apps}
-					highlightIndex={this.state.highlightIndex}
+					focusTabIndex={this.state.focusTabIndex}
+					onAppMouseEnter={this.onAppMouseEnter}
 				/>
 			);
 		}
@@ -116,15 +140,18 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="app">
+			<div 
+				className="app"
+				onKeyDown={this.onAppKeyDown}
+			>
 				<img src={'/images/logo.png'} alt="App Store Page Grabber" className="logo" />
 
 				<SearchBar 
 					onSearchSubmit={this.onSearchSubmit}
 					onCancelButtonClick={this.onCancelButtonClick}
-					onKeyPress={this.onArrowKeyPress}
 					isLoading={this.state.isLoading} 
 					selectedApp={this.state.selectedApp}
+					focusTabIndex={this.state.focusTabIndex}
 				/>
 
 				{this.renderPage()}

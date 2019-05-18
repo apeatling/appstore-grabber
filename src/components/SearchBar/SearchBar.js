@@ -10,15 +10,16 @@ class SearchBar extends React.Component {
 		term: ''
 	}
 
-	componentDidMount() {
-		this.searchInput.focus();
-	}
-
 	componentDidUpdate() {
-		this.searchInput.focus();
-
 		if ( this.props.selectedApp && this.state.term !== this.props.selectedApp.name ) {
 			this.setState({ term: this.props.selectedApp.name });
+		}
+
+		if ( 0 === this.props.focusTabIndex ) {
+			// Timeout to ensure caret is placed at end of text.
+			setTimeout( () => {
+				this.searchInput.focus();
+			}, 1);
 		}
 	}
 
@@ -41,19 +42,6 @@ class SearchBar extends React.Component {
 		window.timeout = setTimeout(
 			this.submitForm, 1000
 		);
-	}
-
-	onInputKeyDown = e => {	
-		const charCode = e.keyCode || e.which;
-		
-		// 38 == up arrow, 40 == down arrow
-		if ( charCode !== 38 && charCode !== 40 ) {
-			return;
-		}
-
-		const direction = ( 38 === charCode ) ? 'up' : 'down';
-
-		this.props.onKeyPress(direction);
 	}
 
 	onCancelButtonClick = () => {
@@ -104,6 +92,7 @@ class SearchBar extends React.Component {
 					{this.renderAppIconHolder()}
 
 					<input 
+						tabIndex={0}
 						type="text"
 						value={this.state.term}
 						onChange={this.onInputChange}
@@ -113,7 +102,7 @@ class SearchBar extends React.Component {
 						autoCorrect="off"
 						autoCapitalize="none"
 						readOnly={this.props.selectedApp ? true : false}
-						onKeyDown={this.onInputKeyDown}
+						autoFocus
 					/>
 
 					{this.renderSpinner()}

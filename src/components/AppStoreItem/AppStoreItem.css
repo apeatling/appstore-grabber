@@ -9,11 +9,11 @@
 	cursor: pointer;
 }
 
-.appstore-item:hover,
-.appstore-item.highlight {
+.appstore-item:focus {
 	background: rgba(255, 255, 255, 0.1);
 	transition-property: background;
 	transition-duration: 0.15s;
+	outline: none;
 }
 
 .appstore-item .icon {
