@@ -43,6 +43,19 @@ class SearchBar extends React.Component {
 		);
 	}
 
+	onInputKeyDown = e => {	
+		const charCode = e.keyCode || e.which;
+		
+		// 38 == up arrow, 40 == down arrow
+		if ( charCode !== 38 && charCode !== 40 ) {
+			return;
+		}
+
+		const direction = ( 38 === charCode ) ? 'up' : 'down';
+
+		this.props.onKeyPress(direction);
+	}
+
 	onCancelButtonClick = () => {
 		this.setState({ term: '' });
 		this.clearForm();
@@ -100,6 +113,7 @@ class SearchBar extends React.Component {
 						autoCorrect="off"
 						autoCapitalize="none"
 						readOnly={this.props.selectedApp ? true : false}
+						onKeyDown={this.onInputKeyDown}
 					/>
 
 					{this.renderSpinner()}

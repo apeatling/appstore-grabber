@@ -8,7 +8,8 @@ class App extends React.Component {
 	state = {
 		apps: [],
 		selectedApp: null,
-		isLoading: false
+		isLoading: false,
+		highlightIndex: -1
 	}
 
 	appListingTimeout = null
@@ -17,7 +18,8 @@ class App extends React.Component {
 	onSearchSubmit = async (term) => {
 		this.setState( {
 			isLoading: true, 
-			selectedApp: null
+			selectedApp: null,
+			highlightIndex: -1
 		});
 
 		const response = await AppStore.get( '/', {
@@ -55,6 +57,28 @@ class App extends React.Component {
 		}, 1000 );
 	}
 
+	onArrowKeyPress = (direction) => {
+		if ( this.state.apps.length < 1 ) {
+			return;
+		}
+
+		if ( direction === 'up' ) {
+			if ( this.state.highlightIndex === 0 ) {
+				return;
+			}
+
+			this.setState({ highlightIndex: (this.state.highlightIndex - 1) });
+		}
+
+		if ( direction === 'down' ) {
+			if ( this.state.highlightIndex === (this.state.apps.length - 1) ) {
+				return;
+			}
+
+			this.setState({ highlightIndex: (this.state.highlightIndex + 1) });
+		}
+	}
+
 	onCancelButtonClick = () => {
 		clearTimeout(this.appListingTimeout);
 		clearTimeout(this.selectedAppTimeout);
@@ -74,6 +98,7 @@ class App extends React.Component {
 				<AppStoreListing 
 					onAppClick={this.onAppClick}
 					apps={this.state.apps}
+					highlightIndex={this.state.highlightIndex}
 				/>
 			);
 		}
@@ -97,6 +122,7 @@ class App extends React.Component {
 				<SearchBar 
 					onSearchSubmit={this.onSearchSubmit}
 					onCancelButtonClick={this.onCancelButtonClick}
+					onKeyPress={this.onArrowKeyPress}
 					isLoading={this.state.isLoading} 
 					selectedApp={this.state.selectedApp}
 				/>

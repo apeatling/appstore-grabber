@@ -13,14 +13,18 @@ class AppStoreListing extends React.Component {
 	}
 
 	renderApps() {
-		return this.props.apps.map((app) => {
+		return this.props.apps.map((app, i) => {
 			let className = "";
+
+			if ( i === this.props.highlightIndex ) {
+				className = "highlight"
+			}
 
 			if ( this.state.selectedApp ) {
 				if ( app === this.state.selectedApp ) {
-					className = "selected";
+					className += " selected";
 				} else {
-					className = "hide";
+					className += " hide";
 				}
 			}
 
@@ -34,6 +38,7 @@ class AppStoreListing extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.highlightIndex);
 		return (
 			<div className="appstore-listing">
 				<ul>
