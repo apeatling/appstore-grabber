@@ -1,2 +1,2 @@
-# appstore-abtester
+# appstore-grabber
 
