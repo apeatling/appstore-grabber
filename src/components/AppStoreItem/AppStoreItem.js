@@ -22,9 +22,7 @@ class AppStoreItem extends React.Component {
 	onAppClick = e => {
 		e.preventDefault();
 		this.props.onAppClick(this.props.app);
-
-		const headerHeight = 117;
-		this.itemRef.current.style.top = '-' + this.itemRef.current.offsetTop - headerHeight + window.pageYOffset + 'px';
+		this.selectApp();
 	}
 
 	onAppMouseEnter = e => {
@@ -32,8 +30,25 @@ class AppStoreItem extends React.Component {
 		this.itemRef.current.focus();
 	}
 
+	onAppKeyUp = e => {
+		const charCode = e.keyCode || e.which;
+		
+		// Return Key
+		if ( charCode !== 13 ) {
+			return;
+		}
+
+		this.props.onAppClick(this.props.app);
+		this.selectApp();
+	}
+
 	onIconLoad = e => {
 		this.setState({ iconIsLoaded: true });
+	}
+
+	selectApp() {
+		const headerHeight = 117;
+		this.itemRef.current.style.top = '-' + this.itemRef.current.offsetTop - headerHeight + window.pageYOffset + 'px';		
 	}
 
 	getIconClassName() {
@@ -51,8 +66,9 @@ class AppStoreItem extends React.Component {
 			<li ref={this.itemRef} 
 				className={`appstore-item ${this.props.className}`}
 				onClick={this.onAppClick}
-				tabIndex={this.props.tabIndex}
 				onMouseEnter={this.onAppMouseEnter}
+				onKeyUp={this.onAppKeyUp}
+				tabIndex={this.props.tabIndex}
 			>
 				<span className="icon">
 					<img src={iconURL} alt={name} width="50" height="50" onLoad={this.onIconLoad} className={this.getIconClassName()} /> 

@@ -68,8 +68,8 @@ class App extends React.Component {
 
 		const charCode = e.keyCode || e.which;
 		
-		// 38 == up arrow, 40 == down arrow, 13 == return key
-		if ( charCode !== 38 && charCode !== 40 && charCode !== 13 ) {
+		// 38 == up arrow, 40 == down arrow
+		if ( charCode !== 38 && charCode !== 40 ) {
 			return;
 		}
 
@@ -94,11 +94,20 @@ class App extends React.Component {
 				focusTabIndex: (this.state.focusTabIndex + 1)
 			});
 		}
+	}
 
-		// Return key
-		if ( charCode === 13 ) {
-			// TODO: select the focused app when hitting return.
+	onAppKeyUp = e => {
+		const charCode = e.keyCode || e.which;
+		
+		// Esc Key
+		if ( charCode !== 27 ) {
+			return;
 		}
+
+		document.body.classList.remove('searching');
+		document.body.classList.add('waiting');
+
+		this.onCancelButtonClick();
 	}
 
 	onCancelButtonClick = () => {
@@ -143,6 +152,7 @@ class App extends React.Component {
 			<div 
 				className="app"
 				onKeyDown={this.onAppKeyDown}
+				onKeyUp={this.onAppKeyUp}
 			>
 				<img src={'/images/logo.png'} alt="App Store Page Grabber" className="logo" />
 

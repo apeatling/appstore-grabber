@@ -51,6 +51,17 @@ class SearchBar extends React.Component {
 		this.props.onCancelButtonClick()
 	}
 
+	onInputKeyUp = e => {
+		const charCode = e.keyCode || e.which;
+		
+		// Esc Key
+		if ( charCode !== 27 ) {
+			return;
+		}
+
+		this.setState({ term: '' });
+	}
+
 	submitForm = () => {
 		if ( this.state.term.length > 0 ) {
 			this.activateForm();
@@ -96,6 +107,7 @@ class SearchBar extends React.Component {
 						type="text"
 						value={this.state.term}
 						onChange={this.onInputChange}
+						onKeyUp={this.onInputKeyUp}
 						ref={(input) => { this.searchInput = input; }}
 						placeholder="Search for an App..."
 						spellCheck="false"
