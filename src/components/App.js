@@ -3,6 +3,7 @@ import AppStore from '../api/AppStore';
 import SearchBar from './SearchBar/SearchBar';
 import AppStoreListing from './AppStoreListing/AppStoreListing';
 import AppStorePage from './AppStorePage/AppStorePage';
+import * as constants from '../constants.js'
 
 class App extends React.Component {
 	state = {
@@ -68,13 +69,11 @@ class App extends React.Component {
 
 		const charCode = e.keyCode || e.which;
 		
-		// 38 == up arrow, 40 == down arrow
-		if ( charCode !== 38 && charCode !== 40 ) {
+		if ( charCode !== constants.UP_ARROW_KEY && charCode !== constants.DOWN_ARROW_KEY ) {
 			return;
 		}
 
-		// Arrow up
-		if ( charCode === 38 ) {
+		if ( charCode === constants.UP_ARROW_KEY ) {
 			if ( this.state.focusTabIndex === 0 ) {
 				return;
 			}
@@ -84,8 +83,7 @@ class App extends React.Component {
 			});
 		}
 
-		// Arrow down
-		if ( charCode === 40 ) {
+		if ( charCode === constants.DOWN_ARROW_KEY ) {
 			if ( this.state.focusTabIndex === (this.state.apps.length - 1) ) {
 				return;
 			}
@@ -96,25 +94,12 @@ class App extends React.Component {
 		}
 	}
 
-	onAppKeyUp = e => {
-		const charCode = e.keyCode || e.which;
-		
-		// Esc Key
-		if ( charCode !== 27 ) {
-			return;
-		}
-
-		document.body.classList.remove('searching');
-		document.body.classList.add('waiting');
-
-		this.onCancelButtonClick();
-	}
-
 	onCancelButtonClick = () => {
 		clearTimeout(this.appListingTimeout);
 		clearTimeout(this.selectedAppTimeout);
 
-		document.body.classList.remove('listing-apps', 'selected-app');
+		document.body.classList.remove('listing-apps', 'selected-app', 'searching');
+		document.body.classList.add('waiting');
 
 		this.setState( {
 			apps: [],
@@ -149,12 +134,11 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div 
+			<div
+				onKeyDown={this.onAppKeyDown} 
 				className="app"
-				onKeyDown={this.onAppKeyDown}
-				onKeyUp={this.onAppKeyUp}
 			>
-				<img src={'/images/logo.png'} alt="App Store Page Grabber" className="logo" />
+				<img src={'/images/logo.png'} alt="App Store Grabber" className="logo" />
 
 				<SearchBar 
 					onSearchSubmit={this.onSearchSubmit}

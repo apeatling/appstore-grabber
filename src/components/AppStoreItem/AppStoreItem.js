@@ -1,4 +1,5 @@
 import React from 'react';
+import * as constants from '../../constants.js';
 import ('./AppStoreItem.css');
 
 class AppStoreItem extends React.Component {
@@ -34,7 +35,7 @@ class AppStoreItem extends React.Component {
 		const charCode = e.keyCode || e.which;
 		
 		// Return Key
-		if ( charCode !== 13 ) {
+		if ( charCode !== constants.RETURN_KEY ) {
 			return;
 		}
 

@@ -2,12 +2,21 @@ import React from 'react';
 import Spinner from '../Spinner/Spinner';
 import CancelButton from '../CancelButton/CancelButton';
 import AppIconHolder from '../AppIconHolder/AppIconHolder';
+import * as constants from '../../constants.js';
 
 import ('./SearchBar.css');
 
 class SearchBar extends React.Component {
 	state = {
 		term: ''
+	}
+
+	componentDidMount() {
+		window.addEventListener('keyup', this.onWindowKeyUp);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('keyup', this.onWindowKeyUp);
 	}
 
 	componentDidUpdate() {
@@ -19,7 +28,7 @@ class SearchBar extends React.Component {
 			// Timeout to ensure caret is placed at end of text.
 			setTimeout( () => {
 				this.searchInput.focus();
-			}, 1);
+			}, 10 );
 		}
 	}
 
@@ -45,21 +54,24 @@ class SearchBar extends React.Component {
 	}
 
 	onCancelButtonClick = () => {
-		this.setState({ term: '' });
+		// Delay to ensure reset of the input value crossbrowser
+		setTimeout( () => {
+			this.setState({ term: '' });
+		}, 10 );
+
 		this.clearForm();
 
 		this.props.onCancelButtonClick()
 	}
 
-	onInputKeyUp = e => {
+	onWindowKeyUp = e => {
 		const charCode = e.keyCode || e.which;
 		
-		// Esc Key
-		if ( charCode !== 27 ) {
+		if ( charCode !== constants.ESC_KEY ) {
 			return;
 		}
 
-		this.setState({ term: '' });
+		this.onCancelButtonClick();
 	}
 
 	submitForm = () => {
@@ -87,7 +99,9 @@ class SearchBar extends React.Component {
 	}
 
 	renderCancelButton() {
-		if ( !this.props.selectedApp ) return;
+		if ( !this.props.selectedApp ) {
+			return;
+		}
 
 		return <CancelButton onCancelButtonClick={this.onCancelButtonClick} />
 	}
@@ -107,7 +121,6 @@ class SearchBar extends React.Component {
 						type="text"
 						value={this.state.term}
 						onChange={this.onInputChange}
-						onKeyUp={this.onInputKeyUp}
 						ref={(input) => { this.searchInput = input; }}
 						placeholder="Search for an App..."
 						spellCheck="false"
