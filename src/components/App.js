@@ -138,8 +138,10 @@ class App extends React.Component {
 				onKeyDown={this.onAppKeyDown} 
 				className="app"
 			>
-				<img src={'/images/logo.png'} alt="App Store Grabber" className="logo" />
-
+				<div className="logo-container">
+					<img src={'/images/logo.png'} alt="App Store Grabber" className="logo" />
+				</div>
+				
 				<SearchBar 
 					onSearchSubmit={this.onSearchSubmit}
 					onCancelButtonClick={this.onCancelButtonClick}

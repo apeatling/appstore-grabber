@@ -1,9 +1,9 @@
 .appstore-listing {
-	width: 75%;
+	width: 85%;
 	max-width: 550px;
 	margin: 0 auto;
 	position: relative;
-	top: 150px;
+	top: 130px;
 }
 
 .appstore-listing ul {

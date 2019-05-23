@@ -12,12 +12,19 @@ body {
 	margin: 0 auto;
 }
 
+.logo-container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding-top: 30%;
+	text-align: center;
+}
+
 .logo {
-    width: 304px;
-    height: 127px;
-    position: fixed;
-    left: calc(50% - 152px);
-    padding-top: calc(40% - 200px);
+	width: 70%;
+    max-width: 304px;
+    min-width: 250px;
+    height: auto;
     opacity: 1;
    	transition-property: opacity;
 	transition-duration: 0.2s;
@@ -28,7 +35,7 @@ body {
 }
 
 .waiting .logo {
-		transition-delay: 0.4s;
+	transition-delay: 0.4s;
 }
 
 /*
