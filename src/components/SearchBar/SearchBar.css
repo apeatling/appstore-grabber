@@ -1,7 +1,7 @@
 .search-bar {
 	position: absolute;
 	left: 0;
-	padding: calc(30% + 125px) 0 30px;
+	padding: calc(30% + 125px) 0 15px;
 	width: 100%;
     min-width: 280px;
 	z-index: 100;
@@ -15,7 +15,7 @@
 }
 
 .searching .search-bar {
-	padding-top: 30px;
+	padding-top: 15px;
 }
 
 .listing-apps .search-bar {
@@ -48,17 +48,17 @@
 
 .search-bar form {
 	position: relative;
-	width: 85%;
 	max-width: 550px;	
 	margin: 0 auto;
-	padding: 0;
+	padding: 0 15px;
 }
 
 .search-bar input {
+	position: relative;
 	font-size: 20px;
-	padding: 15px 50px 15px 60px;
-	min-height: 58px;
 	border-radius: 6px;
+	min-height: 44px;
+	padding: 12px 50px 12px 50px;
 	border: none;
 	width: 100%;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -88,7 +88,22 @@
 }
 
 @media (min-width: 450px) {
+	.search-bar {
+		padding-bottom: 30px;
+	}
+
+	.searching .search-bar { 
+		padding-top: 30px;
+	}
+
 	.search-bar input {
 		font-size: 24px;
+		padding: 15px 50px 15px 60px;
+		min-height: 58px;
+	}
+
+	.search-bar form {
+		width: 85%;
+		padding: 0;
 	}
 }

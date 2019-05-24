@@ -1,13 +1,21 @@
 .appstore-listing {
-	width: 85%;
-	max-width: 550px;
+	top: 100px;
+	padding: 0 8px 40px;
 	margin: 0 auto;
 	position: relative;
-	top: 130px;
 }
 
 .appstore-listing ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+@media (min-width: 450px) {
+	.appstore-listing {
+		width: 85%;
+		max-width: 550px;
+		top: 130px;
+		padding: 0;
+	}
 }

@@ -1,13 +1,15 @@
 .app-icon-holder {
 	position: absolute;
-	top: 12px;
-	left: 13px;
-	width: 33px;
-	height: 33px;
+	top: 10px;
+	left: 25px;
+	width: 28px;
+	height: 28px;
 
 	background: transparent;
 	border: 1px dotted rgba(0, 0, 0, 0.3);
-	border-radius: 9px;
+	border-radius: 7px;
+
+	z-index: 20;
 }
 
 .app-icon-holder img {
@@ -22,4 +24,15 @@
 
 .selected-app.listing-apps .app-icon-holder img {
 	opacity: 0;
+}
+
+
+@media (min-width: 450px) {
+	.app-icon-holder {
+		top: 12px;
+		left: 13px;
+		width: 33px;
+		height: 33px;
+		border-radius: 9px;
+	}
 }
