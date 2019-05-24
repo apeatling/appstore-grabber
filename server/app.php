@@ -15,12 +15,12 @@ if ( $response->resultCount == 0 ) {
 
 $app = $response->results[0];
 
-// Scrape missing or inaccurate data
-$scraper = new Appstore_Scraper($app_id);
-$app->tagline = $scraper->get_tagline();
-$app->rating = $scraper->get_rating();
-$app->ratings_count = $scraper->get_ratings_count();
-$app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
+// Grab missing or inaccurate data
+$grabber = new Appstore_Grabber($app_id);
+$app->tagline = $grabber->get_tagline();
+$app->rating = $grabber->get_rating();
+$app->ratings_count = $grabber->get_ratings_count();
+$app->ratings_bar_sizes = $grabber->get_ratings_bar_widths();
 
 // header("Content-type: application/json; charset=utf-8"); 
 // echo json_encode($app);  
@@ -37,7 +37,7 @@ $app->ratings_bar_sizes = $scraper->get_ratings_bar_widths();
         <link rel="stylesheet" href="style.css?<?php echo rand() ?>">
         <script src="app.js?<?php echo rand() ?>"></script>
 
-        <title></title>
+        <title><?php echo $app->trackCensoredName ?></title>
     </head>
 
     <body>

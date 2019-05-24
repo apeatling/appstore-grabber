@@ -1,6 +1,6 @@
 <?php
 
-class Appstore_Scraper {
+class Appstore_Grabber {
 	private $app_id;
 	private $xpath;
 
