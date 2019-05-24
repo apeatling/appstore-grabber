@@ -21,7 +21,7 @@ body.listing-apps {
 	position: absolute;
 	left: 0;
 	right: 0;
-	padding-top: 30%;
+	padding-top: 25%;
 	text-align: center;
 }
 
@@ -41,6 +41,12 @@ body.listing-apps {
 
 .waiting .logo {
 	transition-delay: 0.4s;
+}
+
+@media (min-width: 450px) {
+	.logo-container {
+		padding-top: 30%;
+	}
 }
 
 /*

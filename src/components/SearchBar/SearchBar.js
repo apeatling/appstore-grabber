@@ -1,4 +1,6 @@
 import React from 'react';
+import IsMobile from 'is-mobile';
+
 import Spinner from '../Spinner/Spinner';
 import CancelButton from '../CancelButton/CancelButton';
 import AppIconHolder from '../AppIconHolder/AppIconHolder';
@@ -53,6 +55,10 @@ class SearchBar extends React.Component {
 		);
 	}
 
+	onInputFocus = e => {
+		document.body.scrollTop = 0;
+	}
+
 	onCancelButtonClick = () => {
 		// Delay to ensure reset of the input value crossbrowser
 		setTimeout( () => {
@@ -77,6 +83,10 @@ class SearchBar extends React.Component {
 	submitForm = () => {
 		if ( this.state.term.length > 0 ) {
 			this.activateForm();
+
+			if ( IsMobile({ tablet: true }) && !document.body.classList.contains('listing-apps') ) {
+				this.searchInput.blur();
+			}
 		}
 
 		this.props.onSearchSubmit(this.state.term);
@@ -121,6 +131,7 @@ class SearchBar extends React.Component {
 						type="text"
 						value={this.state.term}
 						onChange={this.onInputChange}
+						onFocus={this.onInputFocus}
 						ref={(input) => { this.searchInput = input; }}
 						placeholder="Search for an App..."
 						spellCheck="false"
