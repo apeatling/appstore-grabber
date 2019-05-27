@@ -1,13 +1,33 @@
 .appstore-page {
-	padding-top: 140px;
-	display: flex;
+	padding-top: 70px;
 }
 
 .appstore-page .phone-preview {
 	min-width: 360px;
+	position: fixed;
+	bottom: -50%;
 }
 
 .appstore-page .download-prompt {
-	flex-grow: 1;
-	margin-top: 115px;
+	padding: 0 30px;
+}
+
+
+@media (min-width: 450px) {
+	.appstore-page {
+		padding-top: 140px;
+	}
+
+	.appstore-page .phone-preview {
+		position: relative;
+	}
+
+	.appstore-page .download-prompt {
+		flex-grow: 1;
+		margin-top: 115px;
+	}
+
+	.appstore-page {
+		display: flex;
+	}
 }

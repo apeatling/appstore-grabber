@@ -48,8 +48,12 @@ class AppStoreItem extends React.Component {
 	}
 
 	selectApp() {
-		const headerHeight = 117;
-		this.itemRef.current.style.top = '-' + this.itemRef.current.offsetTop - headerHeight + window.pageYOffset + 'px';		
+		if ( document.getElementsByClassName('app-icon-holder')[0] ) {
+			let iconHolderOffset = document.getElementsByClassName('app-icon-holder')[0].getBoundingClientRect().top;
+			let iconOffset = this.itemRef.current.getBoundingClientRect().top;
+
+			this.itemRef.current.style.top = '-' + (iconOffset - iconHolderOffset) + 'px';
+		}
 	}
 
 	getIconClassName() {

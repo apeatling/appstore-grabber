@@ -75,9 +75,11 @@
 
 .appstore-item.selected {
 	z-index: 200;
-	transition-property: top, left, color, background;
+	transition-property: top, left, color, background, padding;
 	color: #555;
 	background: transparent;
+	padding: 0 0 0 17px;
+	margin-top: -1px;
 }
 
 .appstore-item.selected .icon {
@@ -85,21 +87,21 @@
 	margin-right: -28px;
 	background: transparent;
 	overflow: visible;
-	margin-left: 3px;
 }
 
 .appstore-item.selected .icon img {
 	transition-property: width, height, border-radius;
-	width: 37px;
-	height: 37px;
-	border-radius: 9px;
+	width: 31px;
+	height: 31px;
+	border-radius: 7px;
 }
 
 .appstore-item.selected h2 {
 	transition-property: font-weight, color, margin-top;
 	font-weight: 600;
 	color: #444;
-	margin-top: 4px;
+	margin-top: 3px;
+	padding: 0 0 0 8px;
 }
 
 .appstore-item.selected p {
@@ -127,5 +129,24 @@
 
 	.appstore-item .icon img {
 		opacity: 0;
+	}
+
+	.appstore-item.selected {
+		padding: 0 0 0 9px;
+	}
+
+	.appstore-item.selected .icon img {
+		width: 37px;
+		height: 37px;
+		border-radius: 9px;
+	}
+
+	.appstore-item.selected .icon {
+		margin-left: 3px;
+	}
+
+	.appstore-item.selected h2 {
+		margin-top: 4px;
+		padding-left: 1px;
 	}
 }

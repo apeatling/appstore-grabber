@@ -66,8 +66,7 @@ class SearchBar extends React.Component {
 		}, 10 );
 
 		this.clearForm();
-
-		this.props.onCancelButtonClick()
+		this.props.onCancelButtonClick();
 	}
 
 	onWindowKeyUp = e => {

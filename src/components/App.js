@@ -53,6 +53,7 @@ class App extends React.Component {
 		this.setState({ selectedApp: app });
 
 		this.selectedAppTimeout = setTimeout( () => {
+			document.body.scrollTop = 0;
 			document.body.classList.remove('listing-apps');
 			this.setState({ apps: [] });
 		}, 1000 );

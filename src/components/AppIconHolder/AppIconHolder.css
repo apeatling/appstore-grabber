@@ -15,10 +15,10 @@
 .app-icon-holder img {
 	position: relative;
 	top: -2px;
-	left: -2px;
-	width: 37px;
-	height: 37px;
-	border-radius: 9px;
+	left: -1px;
+	width: 31px;
+	height: 31px;
+	border-radius: 7px;
 	opacity: 1;
 }
 
@@ -33,6 +33,13 @@
 		left: 13px;
 		width: 33px;
 		height: 33px;
+		border-radius: 9px;
+	}
+
+	.app-icon-holder img {
+		left: -2px;
+		width: 37px;
+		height: 37px;
 		border-radius: 9px;
 	}
 }
