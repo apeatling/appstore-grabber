@@ -6,7 +6,7 @@ body {
 	overflow: hidden;
 }
 
-body.listing-apps {
+body.listing-apps, body.selected-app {
 	overflow: visible;
 }
 

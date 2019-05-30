@@ -1,11 +1,5 @@
 .appstore-page {
-	padding-top: 70px;
-}
-
-.appstore-page .phone-preview {
-	min-width: 360px;
-	position: fixed;
-	bottom: -50%;
+	padding-top: 80px;
 }
 
 .appstore-page .download-prompt {
@@ -16,10 +10,7 @@
 @media (min-width: 450px) {
 	.appstore-page {
 		padding-top: 140px;
-	}
-
-	.appstore-page .phone-preview {
-		position: relative;
+		min-width: 760px;
 	}
 
 	.appstore-page .download-prompt {

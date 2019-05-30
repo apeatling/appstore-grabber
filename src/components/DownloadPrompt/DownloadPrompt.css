@@ -1,6 +1,7 @@
 .download-prompt {
 	color: #fff;
 	font-size: 18px;
+	margin-bottom: 40px;
 }
 
 .download-prompt h1 {
@@ -10,27 +11,38 @@
 
 .download-prompt p {
 	line-height: 140%;
+	width: 60%;
 }
 
 .download-prompt .button {
-	display: inline-block;
+	display: block;
 	background: rgba(0, 0, 0, 0.3);
 	color: #fff;
 	text-decoration: none;
 	padding: 15px 20px;
 	margin-top: 10px;
+	margin-bottom: 15px;
 	border-radius: 6px;
 	font-size: 18px;
 	font-weight: 600;
 	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
+	width: 60%;
+	box-sizing: border-box;
+    text-align: center;
 }
 
 .download-prompt .or {
+	display: block;
+	width: 60%;
+	text-align: center;
 	color: rgba(255, 255, 255, 0.7);
-	padding: 0 10px;
+	padding: 0 0 8px;
 }
 
 .download-prompt .full-preview {
+	display: block;
+	width: 60%;
+	text-align: center;
 	color: rgba(255, 255, 255, 0.9);
 }
 
@@ -40,7 +52,23 @@
 	}
 
 	.download-prompt .button {
+		display: inline-block;
 		font-size: 20px;
 		padding: 15px 30px;
+		width: auto;
+		margin-bottom: 0;
+	}
+
+	.download-prompt p {
+		width: auto;
+	}
+
+	.download-prompt .or {
+		display: inline;
+		padding: 0 10px;
+	}
+
+	.download-prompt .full-preview {
+		display: inline;
 	}
 }

@@ -18,11 +18,13 @@
 	padding-top: 15px;
 }
 
-.listing-apps .search-bar {
+.listing-apps .search-bar,
+.selected-app .search-bar {
 	position: fixed;
 }
 
-.listing-apps .search-bar::before {
+.listing-apps .search-bar::before,
+.selected-app .search-bar::before {
 	background: url(/images/background.jpg) center center / cover fixed;
 	content: '';
 	position: absolute;
@@ -36,11 +38,13 @@
 }
 
 @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))) {
-	.listing-apps .search-bar::before {
+	.listing-apps .search-bar::before,
+	.selected-app .search-bar::before {
 		background: none;
 	}
 
-	.listing-apps .search-bar {
+	.listing-apps .search-bar,
+	.selected-app .search-bar {
 		-webkit-backdrop-filter: blur(100px);
 		backdrop-filter: blur(100px);
 	}
