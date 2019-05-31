@@ -1,5 +1,7 @@
 .appstore-page {
 	padding-top: 80px;
+	animation: 0.2s ease-in-out 0s 1 slideUpFadeIn;
+	-webkit-animation: 0.2s ease-in-out 0s 1 slideUpFadeIn;
 }
 
 .appstore-page .download-prompt {
@@ -10,15 +12,16 @@
 @media (min-width: 450px) {
 	.appstore-page {
 		padding-top: 140px;
-		min-width: 760px;
 	}
 
 	.appstore-page .download-prompt {
 		flex-grow: 1;
-		margin-top: 115px;
+		padding: 0 15px;
 	}
 
 	.appstore-page {
 		display: flex;
+  		align-items: center;
+  		justify-content: center;
 	}
 }

@@ -1,6 +1,4 @@
 body {
-	background: url(/images/background.jpg) no-repeat center center fixed;
-	background-size: cover;
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 	margin: 0;
 	overflow: hidden;
@@ -15,6 +13,16 @@ body.listing-apps, body.selected-app {
 	z-index: 2;
 	max-width: 760px;
 	margin: 0 auto;
+}
+
+.background-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url(/images/background.jpg) no-repeat center center fixed;
+	background-size: cover;
 }
 
 .logo-container {
@@ -47,6 +55,19 @@ body.listing-apps, body.selected-app {
 	.logo-container {
 		padding-top: 30%;
 	}
+}
+
+@keyframes slideUpFadeIn {
+  0% {
+	opacity: 0;
+	transform: translate3d(0, 25px, 0);
+	-webkit-transform: translate3d(0, 25px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0);
+	-webkit-transform: translate3d(0);
+  }
 }
 
 /*
