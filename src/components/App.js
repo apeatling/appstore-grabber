@@ -125,7 +125,7 @@ class App extends React.Component {
 		if ( !this.state.apps.length && this.state.selectedApp ) {
 			return(
 				<AppStorePage
-					storePageURL={`http://10.0.1.108:8888/app.php?id=${this.state.selectedApp.key}`}
+					storePageURL={`https://getappstore.page/render?id=${this.state.selectedApp.key}`}
 					title="Here's your App Store page!"
 					prompt="Download your page using the button below and then make content adjustments to it. You can use your adjusted page to run split tests and optimize your App Store conversion rate."
 				/>

@@ -285,15 +285,15 @@ $app->ratings_bar_sizes = $grabber->get_ratings_bar_widths();
                 </li>
                 <li>
                     <h3><a href="<?php echo $app->sellerUrl ?>">Developer Website</a></h3>
-                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/website.png" height="15" alt="Website"></a></p>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="images/website.png" height="15" alt="Website"></a></p>
                 </li>
                 <li>
                     <h3><a href="<?php echo $app->sellerUrl ?>">Privacy Policy</a></h3>
-                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/privacy.png" height="15" alt="Privacy"></a></p>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="images/privacy.png" height="15" alt="Privacy"></a></p>
                 </li>
                 <li>
                     <h3><a href="<?php echo $app->sellerUrl ?>">License Agreement</a></h3>
-                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/license.png" height="15" alt="License"></a></p>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="images/license.png" height="15" alt="License"></a></p>
                 </li>
             </ul>
         </section>
