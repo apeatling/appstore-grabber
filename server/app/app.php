@@ -1,7 +1,7 @@
 <?php
 require_once('functions.php');
 
-$app_id = $_GET['id'];
+$app_id = urlencode($_GET['id']);
 
 $ch = curl_init("https://itunes.apple.com/lookup?country=US&id=" . $app_id);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
