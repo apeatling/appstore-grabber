@@ -36,7 +36,7 @@ $app->ratings_bar_sizes = $grabber->get_ratings_bar_widths();
         <title><?php echo $app->trackCensoredName ?></title>
     </head>
 
-    <body<?php if ( !isset( $_GET['dl'] ) ) : ?> class="preview"<?php endif; ?>>
+    <body<?php if ( isset( $_GET['preview'] ) ) : ?> class="preview"<?php endif; ?>>
         <section id="header">
             <ul>
                 <li class="icon">
