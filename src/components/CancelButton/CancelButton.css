@@ -10,6 +10,7 @@
 	background: #C7C7CC url(/images/cancel.png) center center no-repeat;
 	background-size: 50%;
 	border-radius: 50%;
+	z-index: 10;
 }
 
 .cancel-button:focus, .cancel-button:active {

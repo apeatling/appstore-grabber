@@ -10,7 +10,7 @@ curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
 $response = json_decode( curl_exec($ch) );
 
 if ( $response->resultCount == 0 ) {
-	die( "No Results");
+	die( "No Results" );
 }
 
 $app = $response->results[0];
@@ -21,10 +21,6 @@ $app->tagline = $grabber->get_tagline();
 $app->rating = $grabber->get_rating();
 $app->ratings_count = $grabber->get_ratings_count();
 $app->ratings_bar_sizes = $grabber->get_ratings_bar_widths();
-
-// header("Content-type: application/json; charset=utf-8"); 
-// echo json_encode($app);  
-// die;
 ?>
 
 <!doctype html>
@@ -40,7 +36,7 @@ $app->ratings_bar_sizes = $grabber->get_ratings_bar_widths();
         <title><?php echo $app->trackCensoredName ?></title>
     </head>
 
-    <body>
+    <body<?php if ( !isset( $_GET['dl'] ) ) : ?> class="preview"<?php endif; ?>>
         <section id="header">
             <ul>
                 <li class="icon">
