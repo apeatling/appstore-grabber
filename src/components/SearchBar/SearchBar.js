@@ -125,6 +125,7 @@ class SearchBar extends React.Component {
 				<form onSubmit={this.onSearchSubmit}>
 					{this.renderAppIconHolder()}
 
+					<label htmlFor="search">Search</label>
 					<input 
 						tabIndex={0}
 						type="text"
@@ -136,6 +137,8 @@ class SearchBar extends React.Component {
 						spellCheck="false"
 						autoCorrect="off"
 						autoCapitalize="none"
+						name="search"
+						id="search" 
 						readOnly={this.props.selectedApp ? true : false}
 						autoFocus
 					/>
