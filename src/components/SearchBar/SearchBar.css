@@ -53,6 +53,11 @@
 	padding: 0 15px;
 }
 
+.search-bar label {
+	position: absolute;
+	z-index: 0;
+}
+
 .search-bar input {
 	position: relative;
 	font-size: 20px;
@@ -70,6 +75,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	color: #444;
+	z-index: 5;
 }
 
 .search-bar input[type="text"]:focus { /* You can also use .element.text:focus here */

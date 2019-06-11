@@ -6,8 +6,8 @@ const DownloadPrompt = (props) => {
 		<div className="download-prompt">
 			{props.children}
 
-			<a className="button download" href="https://">Download</a> <span className="or">or</span>  
-			<a className="full-preview" href={props.storePageURL} target="_blank" rel="noopener noreferrer">Preview Full Size</a>
+			<a className="button download" href={`${props.storePageURL}&dl=1`}>Download</a> <span className="or">or</span>  
+			<a className="full-preview" href={`${props.storePageURL}&preview=1`} target="_blank" rel="noopener noreferrer">Preview Full Size</a>
 		</div>
 	);
 };

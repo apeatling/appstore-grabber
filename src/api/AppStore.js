@@ -1,5 +1,6 @@
 import axios from 'axios';
+import * as constants from '../constants.js';
 
 export default axios.create({
-	baseURL: 'https://itunes.apple.com/search'
+	baseURL: constants.API_URL
 });

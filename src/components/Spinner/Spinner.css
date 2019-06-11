@@ -11,6 +11,7 @@
 	border-right: 2px solid #fff;
 	border-radius: 50%;
 	animation: 0.75s spin linear infinite;
+    z-index: 10;
 }
     
 @-webkit-keyframes spin {

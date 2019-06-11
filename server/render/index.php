@@ -1,7 +1,7 @@
 <?php
 require_once('functions.php');
 
-$app_id = $_GET['id'];
+$app_id = urlencode($_GET['id']);
 
 $ch = curl_init("https://itunes.apple.com/lookup?country=US&id=" . $app_id);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -10,7 +10,7 @@ curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
 $response = json_decode( curl_exec($ch) );
 
 if ( $response->resultCount == 0 ) {
-	die( "No Results");
+	die( "No Results" );
 }
 
 $app = $response->results[0];
@@ -21,10 +21,6 @@ $app->tagline = $grabber->get_tagline();
 $app->rating = $grabber->get_rating();
 $app->ratings_count = $grabber->get_ratings_count();
 $app->ratings_bar_sizes = $grabber->get_ratings_bar_widths();
-
-// header("Content-type: application/json; charset=utf-8"); 
-// echo json_encode($app);  
-// die;
 ?>
 
 <!doctype html>
@@ -40,7 +36,7 @@ $app->ratings_bar_sizes = $grabber->get_ratings_bar_widths();
         <title><?php echo $app->trackCensoredName ?></title>
     </head>
 
-    <body>
+    <body<?php if ( isset( $_GET['preview'] ) ) : ?> class="preview"<?php endif; ?>>
         <section id="header">
             <ul>
                 <li class="icon">
@@ -285,15 +281,15 @@ $app->ratings_bar_sizes = $grabber->get_ratings_bar_widths();
                 </li>
                 <li>
                     <h3><a href="<?php echo $app->sellerUrl ?>">Developer Website</a></h3>
-                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/website.png" height="15" alt="Website"></a></p>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="images/website.png" height="15" alt="Website"></a></p>
                 </li>
                 <li>
                     <h3><a href="<?php echo $app->sellerUrl ?>">Privacy Policy</a></h3>
-                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/privacy.png" height="15" alt="Privacy"></a></p>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="images/privacy.png" height="15" alt="Privacy"></a></p>
                 </li>
                 <li>
                     <h3><a href="<?php echo $app->sellerUrl ?>">License Agreement</a></h3>
-                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="/images/license.png" height="15" alt="License"></a></p>
+                    <p><a href="<?php echo $app->sellerUrl ?>"><img src="images/license.png" height="15" alt="License"></a></p>
                 </li>
             </ul>
         </section>

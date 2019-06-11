@@ -13,6 +13,11 @@ body {
 	flex-direction: column;
 }
 
+body.preview {
+	max-width: 450px;
+	margin: 0 auto;
+}
+
 a {
 	color: #007AFF;
 	text-decoration: none
@@ -139,6 +144,12 @@ h3 {
 	border: none;
 	opacity: 0;
 	transition: linear 0.2s opacity;
+}
+
+.preview #scroll-header {
+	max-width: 450px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .show-scroll-header #scroll-header {
