@@ -8,7 +8,7 @@ class PhonePreview extends React.Component {
 				<div className="iframe-holder">
 				<iframe 
 					title="page" 
-					src={this.props.frameURL}
+					src={`${this.props.frameURL}&preview=1`}
 				/>
 				</div>
 			</div>
