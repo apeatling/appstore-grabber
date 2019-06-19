@@ -137,6 +137,7 @@ class SearchBar extends React.Component {
 						spellCheck="false"
 						autoCorrect="off"
 						autoCapitalize="none"
+						autoComplete="off"
 						name="search"
 						id="search" 
 						readOnly={this.props.selectedApp ? true : false}

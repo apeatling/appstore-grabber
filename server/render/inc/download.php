@@ -16,22 +16,22 @@ $zip = new ZipArchive;
 // Generate and download new ZIP
 if ( $zip->open( $filepath . $filename, ZipArchive::CREATE ) === true ) {
 	$zip->addFromString('app/index.html', $html);
- 
-    // Add files to the zip file
-    $zip->addFile( dirname( dirname( __FILE__ ) ) . '/style.css', 'app/style.css' );
-    $zip->addFile( dirname( dirname( __FILE__ ) ). '/app.js', 'app/app.js' );
 
-    if ( $imageDir = opendir( dirname( dirname( __FILE__ ) ) . '/images' ) ) {
-    	while ( false !== ( $imageFileName = readdir( $imageDir ) ) ) {
-    		if ( $imageFileName != "." && $imageFileName != ".." && strpos( $imageFileName, '.png' ) !== false ) {
-    			$zip->addFile( dirname( dirname( __FILE__ ) ) . '/images/' . $imageFileName, 'app/images/' . $imageFileName );
-            }
-        }
+	// Add files to the zip file
+	$zip->addFile( dirname( dirname( __FILE__ ) ) . '/style.css', 'app/style.css' );
+	$zip->addFile( dirname( dirname( __FILE__ ) ). '/app.js', 'app/app.js' );
 
-        closedir( $imageDir );
-    }
+	if ( $imageDir = opendir( dirname( dirname( __FILE__ ) ) . '/images' ) ) {
+		while ( false !== ( $imageFileName = readdir( $imageDir ) ) ) {
+			if ( $imageFileName != "." && $imageFileName != ".." && strpos( $imageFileName, '.png' ) !== false ) {
+				$zip->addFile( dirname( dirname( __FILE__ ) ) . '/images/' . $imageFileName, 'app/images/' . $imageFileName );
+			}
+		}
 
-    $zip->close();
+		closedir( $imageDir );
+	}
+
+	$zip->close();
 
 	if ( file_exists( $filepath . $filename ) ) {
 		header("Pragma: public");
@@ -47,7 +47,7 @@ if ( $zip->open( $filepath . $filename, ZipArchive::CREATE ) === true ) {
 		readfile( $filepath . $filename );
 	}
 
-	// // Delete all existing zip files
+	// Delete all existing zip files
 	if ( $dir = opendir( '.' ) ) {
 		while ( false !== ( $zipFile = readdir( $dir ) ) ) {
 			if ( strpos( $zipFile, '.zip' ) !== false ) {

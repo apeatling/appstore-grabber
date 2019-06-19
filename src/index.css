@@ -35,16 +35,16 @@ body.listing-apps, body.selected-app {
 
 .logo {
 	width: 70%;
-    max-width: 304px;
-    min-width: 250px;
-    height: auto;
-    opacity: 1;
-   	transition-property: opacity;
+	max-width: 304px;
+	min-width: 250px;
+	height: auto;
+	opacity: 1;
+	transition-property: opacity;
 	transition-duration: 0.2s;
 }
 
 .searching .logo {
-    opacity: 0;
+	opacity: 0;
 }
 
 .waiting .logo {
@@ -58,14 +58,14 @@ body.listing-apps, body.selected-app {
 }
 
 @keyframes slideUpFadeIn {
-  0% {
-	opacity: 0;
-	transform: translate3d(0, 25px, 0);
-	-webkit-transform: translate3d(0, 25px, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0);
-	-webkit-transform: translate3d(0);
-  }
+	0% {
+		opacity: 0;
+		transform: translate3d(0, 25px, 0);
+		-webkit-transform: translate3d(0, 25px, 0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(0);
+		-webkit-transform: translate3d(0);
+	}
 }

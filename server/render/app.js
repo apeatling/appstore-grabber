@@ -13,9 +13,9 @@ var appStoreTemplate = {
 		for (var i = 0; i < anchors.length; i++) {
 			if( anchors[i].classList.contains('get-button') ) continue;
 
-   			anchors[i].addEventListener('click', function(e) {
-   				e.preventDefault();
-   			});
+			anchors[i].addEventListener('click', function(e) {
+				e.preventDefault();
+			});
 		}
 	},	
 
