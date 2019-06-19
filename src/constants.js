@@ -9,7 +9,7 @@ const prod = {
 };
 
 const dev = {
-  API_URL: "http://localhost:8888/search",
+  API_URL: "http://localhost:8888/api",
   RENDER_URL: "http://localhost:8888/render"
 };
 
